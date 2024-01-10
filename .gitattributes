@@ -1,0 +1,2 @@
+*.feather filter=lfs diff=lfs merge=lfs -text
+coda_average_embeddings.feather filter=lfs diff=lfs merge=lfs -text
