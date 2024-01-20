@@ -1,0 +1,53 @@
+Meeting with Dan, Jeff, Paul, Bennett, Rasoul and Caspar
+
+novel developments in the history of 60 years
+
+break up dataset in historical decades or sth
+
+Constructs that are considered different but that are used in similar ways
+
+* Code specific terms
+
+Frame this in terms of the historical development of the field
+
+Resource management dilemma
+
+Public goods dilemma
+
+Prisoner's dilemma
+
+Nomological net
+
+
+1. This is just as valuable as a narrative review, and overcomes some of its limitations
+2. The output format is very close to a nomological net, so it provides an excellent starting point for (formal) theory development: this gives us the building blocks
+3. Serendipitous findings might further sell this paper; new developments, undertheorized phenomena, etc.
+
+Effect of time is interesting
+
+Web appendices
+
+-------------------------
+
+Notes of meeting with Bennett and Rasoul
+
+1. Do we need/want duplicated words? They all are somewhat different in their embeddings, of course, but seem to cluster together (so little added value)
+
+1. Run on entire dataset
+2. Merge vectors of same words, then run on this reduced dataset
+3. Compare cluster assignments between full and reduced dataset
+
+
+2. If we go for unique words, we drastically reduce the size (from 130k 
+--> 8k). These results are done. Needs some refinement in the
+hyperparameters (esp. the "esp" parameter).
+
+3. You went for the hierarchical DBSCAN. I haven't done that one yet. 
+Remind me: what is the rationale of the hierarchical approach for the theoretical insights?
+
+n-grams
+
+1. Improve preprocessing, because right now the words are still too noisy for bigram analysis
+2. Use text rank to identify n-grams (2 or 3-grams)
+3. Enhance the dataset at sentence level with n-grams that occur in more than 5% or so of papers
+4. To get embedding of n-grams, average the embeddings of the constituent words
