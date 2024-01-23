@@ -2,5 +2,11 @@ worcs_version: 0.1.14
 creator: vanlissa
 entry_point: manuscript/manuscript.Rmd
 recipe:
-  recipe: rmarkdown::render('manuscript/manuscript.Rmd')
+  recipe: targets::tar_make()
   terminal: no
+data:
+  embeddings.rdata:
+    save_expression: saveRDS(object = data, file = filename)
+    load_expression: readRDS(file = filename)
+checksums:
+  embeddings.rdata: 7add992bd95485cac90f64a17653a069

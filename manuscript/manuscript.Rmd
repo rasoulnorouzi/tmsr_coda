@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "CODA TMSR Report"
 output: github_document
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 bibliography: references.bib
@@ -7,40 +7,35 @@ knit: worcs::cite_all
 ---
 
 ```{r setup, include=FALSE}
-library("worcs")
-# We recommend that you prepare your raw data for analysis in 'prepare_data.R',
-# and end that file with either open_data(yourdata), or closed_data(yourdata).
-# Then, uncomment the line below to load the original or synthetic data
-# (whichever is available), to allow anyone to reproduce your code:
-# load_data()
+library(worcs)
+library(dbscan)
+library(umap)
+library(data.table)
+library(ggplot2)
+library(reticulate)
+use_virtualenv("tmsrcoda")
+pypkgs <- py_list_packages()
+if(!"hdbscan" %in% pypkgs$package) reticulate::py_install("hdbscan")
+if(!"umap-learn" %in% pypkgs$package) reticulate::py_install("umap-learn")
+load_data()
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This manuscript uses the Workflow for Open Reproducible Code in Science [@vanlissaWORCSWorkflowOpen2021] to ensure reproducibility and transparency. All code <!--and data--> are available at <https://github.com/cjvanlissa/tmsr_coda.git>.
+```{r eval = FALSE}
 
-This is an example of a non-essential citation [@@vanlissaWORCSWorkflowOpen2021]. If you change the rendering function to `worcs::cite_essential`, it will be removed.
 
-<!--The function below inserts a notification if the manuscript is knit using synthetic data. Make sure to insert it after load_data().-->
-`r notify_synthetic()`
 
-## GitHub Documents
+# Remove outliers ---------------------------------------------------------
+res_clust <- hdbscan(mat_vect, minPts = 10)
+tend <- Sys.time()
+tmp <- yaml::read_yaml("durations.yml")
+tmp[["hdbscan"]] <- tend-tstart
+yaml::write_yaml(tmp, "durations.yml")
+res_clust
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
+table(res_hdbscan$labels)
 
-## Including Code
+  cluster_words <- split(df$word[unique_words], factor(res_hdbscan$labels))
 
-You can include R code in the document as follows:
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
