@@ -10,3 +10,5 @@
 *.log
 *.tex
 .Rproj.user
+*.feather
+*.rdata
