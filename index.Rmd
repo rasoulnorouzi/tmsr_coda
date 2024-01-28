@@ -1,0 +1,115 @@
+---
+title: "CODA TMSR Report"
+output: html_document
+date: '`r format(Sys.time(), "%d %B, %Y")`'
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+library(worcs)
+library(dbscan)
+library(umap)
+library(data.table)
+library(ggplot2)
+library(reticulate)
+library(targets)
+#tar_config_set(store = "../_targets")
+use_virtualenv("tmsrcoda")
+knitr::opts_chunk$set(echo = FALSE)
+fig_format = ".png"
+```
+
+```{r}
+tar_load(df)
+tar_load(exmplrs)
+tar_load(res_hdbscan)
+tab_clust <- table(res_hdbscan$labels)[names(exmplrs)]
+```
+
+HDBSCAN with minimum cluster size of 20 words found `r length(exmplrs)-1` clusters.
+Out of `r length(df[["word"]])` words, `r tab_clust[["-1"]]` were classified as noise.
+The remaining words were distributed across clusters as follows:
+
+```{r figdist}
+tar_load(plot_dist_clust_file)
+knitr::include_graphics(paste0(plot_dist_clust_file, fig_format))
+```
+
+## Construct Frequency
+
+This is the frequency of specific constructs:
+
+```{r figfreq}
+tar_load(plot_freq_file)
+knitr::include_graphics(paste0(plot_freq_file, fig_format))
+```
+
+## Co-occurrence Graph
+
+This graph illustrates which constructs co-occur within documents,
+with node size weighted by construct frequency and edge linesize weighted by the frequency of co-occurrence (logarithmically scaled).
+
+```{r fignet}
+tar_load(plot_graph_file)
+knitr::include_graphics(paste0(plot_graph_file, fig_format))
+```
+
+## Interactive Graph
+
+```{r}
+select_cooc <- function(cooc, q = .95){
+
+  fit <- MASS::fitdistr(cooc, "negative binomial")
+  thres <- qnbinom(q, size=fit$estimate["size"], mu=fit$estimate["mu"])
+  return(cooc > thres)
+}
+include <- as.logical(sapply(exmplrs, `[[`, "include")[as.character(res_hdbscan$labels)])
+labels <- sapply(exmplrs, `[[`, "label")[as.character(res_hdbscan$labels)]
+dat <- data.frame(doc = as.integer(factor(df$doc_id)),
+                  construct = res_hdbscan$labels,
+                  include,
+                  labels)
+# Drop terms marked for exclusion
+dat <- dat[dat$include, -which(names(dat)=="include")]
+# Words only count once per document
+dat <- dat[!duplicated(dat), ]
+# Make coocurrence matrix
+V <- crossprod(table(dat[1:2]))
+diag(V) <- 0
+
+df_plot <- as.data.frame.table(V)
+labs <- sapply(exmplrs, `[[`, "label")[as.logical(sapply(exmplrs, `[[`, "include"))]
+levels(df_plot$construct) <- labs
+levels(df_plot$construct.1) <- labs
+names(df_plot) <- c("term1", "term2", "cooc")
+df_plot <- df_plot[as.vector(lower.tri(V)), ]
+
+# Drop some links?
+df_plot <- suppressWarnings(df_plot[select_cooc(df_plot$cooc), ])
+# Create network ----------------------------------------------------------
+cluster_freq <- read.csv("cluster_freq.csv", stringsAsFactors = FALSE)
+edg <- df_plot
+names(edg) <- c("source", "target", "width")
+
+vert <- data.frame(name = as.character(unique(unlist(edg[1:2]))))
+vert$size <- cluster_freq$Frequency[match(vert$name, cluster_freq$Construct)]
+vert$size <- scales::rescale(log(vert$size), c(4, 12))
+library(igraph)
+library(networkD3)
+g <- graph_from_data_frame(edg, vertices = vert, directed = FALSE)
+
+netd3 <- igraph_to_networkD3(g)
+lnk <- netd3$links
+nod <- netd3$nodes
+nod$group <- "group1"
+
+forceNetwork(Links = lnk, Nodes = nod, Source = "source", Target = "target", NodeID = "name", zoom = TRUE, Group = "group", linkDistance = 200)
+```
+
+
+## Construct Details
+
+```{r}
+tar_load(exmplrs)
+print(exmplrs)
+```

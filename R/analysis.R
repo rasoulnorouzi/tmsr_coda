@@ -1,3 +1,6 @@
+library(igraph)
+dat_fun <- function(){ worcs::load_data(to_envir = FALSE, verbose = FALSE)$embeddings}
+
 do_umap <- function(mat_vect){
 # Reduce dimensionality
 # we will want a larger n_neighbors value – small values will focus more on very local structure and are more prone to producing fine grained cluster structure that may be more a result of patterns of noise in the data than actual clusters.
@@ -36,8 +39,8 @@ do_hdbscan <- function(mat, algorithm = "best",
                        min_samples = 1L,
                        cluster_selection_epsilon =  .1,
                        cluster_selection_method = "leaf"){
-  use_virtualenv("tmsrcoda")
-  pypkgs <- py_list_packages()
+  reticulate::use_virtualenv("tmsrcoda")
+  pypkgs <- reticulate::py_list_packages()
   if(!"hdbscan" %in% pypkgs$package) reticulate::py_install("hdbscan")
   hdbscan <- reticulate::import('hdbscan', delay_load = TRUE)
 
@@ -105,4 +108,249 @@ remove_outliers <- function(mat_umap){
            type="s",
            size=1)
 
+}
+
+
+write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
+  all_clusters <- sort(unique(res_hdbscan$labels))
+  # exemplars <- lapply(all_clusters, function(thisclust){
+  #   #thisclust = 106
+  #   print(thisclust)
+  #   exmpls <- res_hdbscan$exemplars[[thisclust]]
+  #   df$word[apply(exmpls, 1, FUN = function(x){which(rowSums(res_umap$layout == rep(x, each = nrow(res_umap$layout)))==length(x))})]
+  # })
+  words_by_clust <- split(df$word, factor(res_hdbscan$labels))
+  tab_words <- lapply(words_by_clust, table)
+  labs <- lapply(tab_words, function(x){
+    sample(names(x)[x == max(x)], 1)
+  })
+  out <- vector("list", length = length(all_clusters))
+  for(i in seq_along(out)){
+    out[[i]] <- list(
+      label = labs[[i]],
+      words = paste0(words_by_clust[[i]], collapse = ", "),
+      include = TRUE
+    )
+  }
+  names(out) <- all_clusters
+  out[[1]]$label <- "noise"
+  out[[1]]$include <- "FALSE"
+  yaml::write_yaml(out, "exemplars.yaml")
+  return("exemplars.yaml")
+}
+
+
+plot_dist_clust <- function(res_hdbscan){
+  df_plot <- as.data.frame.table(table(res_hdbscan$labels))
+  df_plot <- df_plot[!df_plot$Var1 == "-1", ]
+  library(ggplot2)
+  library(svglite)
+  p = ggplot(df_plot, aes(x = Freq)) +
+    geom_density() +
+    labs(x = "Cluster frequency", y = "Density") +
+    theme_bw() +
+    scale_x_continuous(limits = range(df_plot$Freq), expand = c(0,0))
+  ggsave("plot_dist_clust.png", p, device = "png", width = 210, height = 200, units = "mm")
+  ggsave("plot_dist_clust.svg", p, device = "svg", width = 210, height = 200, units = "mm")
+  return("plot_dist_clust")
+}
+
+## Construct frequencies
+pretty_words <- function(x){
+  out <- x
+  out[tolower(out) == "dysregulation"] <- "Emotion regulation"
+  out <- stringr::str_to_sentence(gsub("[_-]", " ", out))
+  out[out == "Adhd cd"] <- "ADHD/CD"
+  out[out == "Ses"] <- "SES"
+  out[out == "Ptsd"] <- "PTSD"
+  out[out == "Schizo"] <- "Schizophrenia"
+  out <- gsub("^Par\\.", "Parenting ", out)
+  out
+}
+
+plot_cluster_freq <- function(exmplrs, res_hdbscan){
+  word_freq <- as.data.frame.table(table(res_hdbscan$labels))
+  names(word_freq) <- c("Construct", "Frequency")
+  word_freq$Construct <- sapply(exmplrs, `[[`, "label")
+  word_freq <- word_freq[as.logical(sapply(exmplrs, `[[`, "include")), ]
+  write.csv(word_freq, "cluster_freq.csv", row.names = FALSE)
+  df_plot <- word_freq
+  # categ <- read.csv("study1_categorization.csv", stringsAsFactors = FALSE)
+  # df_plot$cat <- categ$category[match(df_plot$Construct, categ$name)]
+  # df_plot$baseline <- as.character(df_plot$Construct %in% baseline)
+  # df_plot$faded <- df_plot$Construct %in% baseline
+  df_plot$Construct <- pretty_words(df_plot$Construct)
+  df_plot <- df_plot[order(df_plot$Frequency, decreasing = TRUE), ]
+  df_plot$Construct <- ordered(df_plot$Construct, levels = df_plot$Construct[order(df_plot$Frequency)])
+
+  #cat_cols <- c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")
+  #df_plot$cat <- ordered(df_plot$cat, levels = c("Outcome", "Indicator", "Cause", "Protective"))
+  range(df_plot$Frequency)
+  p <- ggplot(df_plot, aes(y = Construct, x = Frequency)) +
+    geom_segment(aes(x = 0, xend = Frequency,
+                     y = Construct, yend = Construct
+                     #, linetype = faded
+    ), colour = "grey50"
+    ) +
+    geom_vline(xintercept = 0, colour = "grey50", linetype = 1) + xlab("Construct frequency") +
+    geom_point(data = df_plot, colour = "black", fill = "black", shape = 21, size = 1.5) +
+    # scale_colour_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen"), guide = NULL)+
+    # scale_fill_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")) +
+    scale_x_sqrt() +
+    #scale_linetype_manual(values = c("TRUE" = 2, "FALSE" = 1), guide = NULL) +
+    theme_bw() + theme(panel.grid.major.x = element_blank(),
+                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank(),
+                       legend.position = c(.70,.125),
+                       legend.title = element_blank(),
+                       axis.text.y = element_text(hjust=0, vjust = 0, size = 6))
+
+  ggsave("plot_freq.png", p, device = "png", width = 210, height = 400, units = "mm")
+  ggsave("plot_freq.svg", p, device = "svg", width = 210, height = 400, units = "mm")
+  return("plot_freq")
+}
+mycircle <- function(coords, v=NULL, params) {
+  vertex.color <- params("vertex", "color")
+  if (length(vertex.color) != 1 && !is.null(v)) {
+    vertex.color <- vertex.color[v]
+  }
+  vertex.size  <- 1/200 * params("vertex", "size")
+  if (length(vertex.size) != 1 && !is.null(v)) {
+    vertex.size <- vertex.size[v]
+  }
+  vertex.frame.color <- params("vertex", "frame.color")
+  if (length(vertex.frame.color) != 1 && !is.null(v)) {
+    vertex.frame.color <- vertex.frame.color[v]
+  }
+  vertex.frame.width <- params("vertex", "frame.width")
+  if (length(vertex.frame.width) != 1 && !is.null(v)) {
+    vertex.frame.width <- vertex.frame.width[v]
+  }
+
+  mapply(coords[,1], coords[,2], vertex.color, vertex.frame.color,
+         vertex.size, vertex.frame.width,
+         FUN=function(x, y, bg, fg, size, lwd) {
+           symbols(x=x, y=y, bg=bg, fg=fg, lwd=lwd,
+                   circles=size, add=TRUE, inches=FALSE)
+         })
+}
+
+add.vertex.shape("circle2", clip=igraph.shape.noclip,
+                 plot=mycircle, parameters=list(vertex.frame.color=1,
+                                                vertex.frame.width=1))
+
+
+
+select_cooc <- function(cooc, q = .95){
+
+  fit <- MASS::fitdistr(cooc, "negative binomial")
+  thres <- qnbinom(q, size=fit$estimate["size"], mu=fit$estimate["mu"])
+  return(cooc > thres)
+}
+
+plot_graph <- function(df, exmplrs, res_hdbscan){
+
+  # Prep data
+  include <- as.logical(sapply(exmplrs, `[[`, "include")[as.character(res_hdbscan$labels)])
+  labels <- sapply(exmplrs, `[[`, "label")[as.character(res_hdbscan$labels)]
+  dat <- data.frame(doc = as.integer(factor(df$doc_id)),
+                    construct = res_hdbscan$labels,
+                    include,
+                    labels)
+  # Drop terms marked for exclusion
+  dat <- dat[dat$include, -which(names(dat)=="include")]
+  # Words only count once per document
+  dat <- dat[!duplicated(dat), ]
+  # Make coocurrence matrix
+  V <- crossprod(table(dat[1:2]))
+  diag(V) <- 0
+
+  df_plot <- as.data.frame.table(V)
+  labs <- sapply(exmplrs, `[[`, "label")[as.logical(sapply(exmplrs, `[[`, "include"))]
+  levels(df_plot$construct) <- labs
+  levels(df_plot$construct.1) <- labs
+  names(df_plot) <- c("term1", "term2", "cooc")
+  df_plot <- df_plot[as.vector(lower.tri(V)), ]
+
+  # Drop some links?
+  df_plot <- df_plot[select_cooc(df_plot$cooc), ]
+  # Create network ----------------------------------------------------------
+  cluster_freq <- read.csv("cluster_freq.csv", stringsAsFactors = FALSE)
+  edg <- df_plot
+  edg$width = edg$cooc
+
+  vert <- data.frame(name = as.character(unique(c(edg$term1, edg$term2))))
+  vert$label <- pretty_words(vert$name)
+  vert$size <- cluster_freq$Frequency[match(vert$name, cluster_freq$Construct)]
+
+  #categ <- read.csv("study1_categorization.csv", stringsAsFactors = FALSE)
+  # if(any(!vert$name %in% categ$name)){
+  #   write.table(vert$name[!vert$name %in% categ$name], "clipboard", sep = "\n", row.names = FALSE, col.names= FALSE)
+  #   stop("Please re-categorize missing vertices.")
+  # }
+  # vert$Category <- categ$category[match(vert$name, categ$name)]
+  # vert$faded <- vert$name %in% baseline
+
+  #cat_cols <- c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "olivedrab2")
+  #vert$color <- cat_cols[vert$Category]
+  # vert$frame.color <- cat_cols[vert$Category]
+  # vert$color[vert$faded] <- "#FFFFFF"
+
+  vert$size <- scales::rescale(log(vert$size), c(4, 12))
+  library(igraph)
+  g <- graph_from_data_frame(edg, vertices = vert,
+                             directed = FALSE)
+
+  # edge thickness
+  E(g)$width <- scales::rescale(sqrt(E(g)$width), to = c(.5, 8))
+
+
+  #dysreg_vertex = which(names(V(g)) == "dysregulation")
+
+  edge.start <- ends(g, es=E(g), names = FALSE)[,1]
+  edge.end <- ends(g, es=E(g), names = FALSE)[,2]
+  #E(g)$lty <- c(1, 5)[(!(edge.start == dysreg_vertex|edge.end == dysreg_vertex))+1]
+
+  # Layout
+  set.seed(6) #4
+  l1 <- l <- layout_with_fr(g)
+  l1[,1] <- -1*l1[,1]
+  set.seed(64)
+  shifter <- function(x, n = 1) {
+    if (n == 0) x else c(tail(x, -n), head(x, n))
+  }
+  l2 <- layout_in_circle(g, order = shifter(V(g), -3))
+
+  p <- quote({
+    # Set margins to 0
+    par(mar=c(0,0,0,0),
+        mfrow=c(1,2))
+    plot(g, edge.curved = 0, layout=l1,
+         vertex.label.family = "sans",
+         vertex.label.cex = 0.8,
+         vertex.shape = "circle2",
+         #vertex.frame.color = 'gray40',
+         vertex.label.color = 'black',      # Color of node names
+         vertex.label.font = 1,         # Font of node names
+         vertex.frame.width = 2
+    )
+    #legend(x=-1.1, y=1.1, names(cat_cols), pch=21, col="#777777", pt.bg=cat_cols, pt.cex=2, cex=.8, bty="n", ncol=1)
+    plot(g, edge.curved = 0, layout=l2,
+         vertex.label.family = "sans",
+         vertex.label.cex = 0.8,
+         vertex.shape = "circle2",
+         #vertex.frame.color = 'gray40',
+         vertex.label.color = 'black',      # Color of node names
+         vertex.label.font = 1,         # Font of node names
+         vertex.frame.width = 2
+    )
+  })
+
+  # Save files
+  svg("network.svg", width = 7, height=7, pointsize = 4)
+  eval(p)
+  dev.off()
+  png("network.png", width = 2400, height=2400, pointsize = 12)
+  eval(p)
+  dev.off()
+  return("network")
 }

@@ -4,7 +4,7 @@ library(targets)
 # Set target options:
 tar_option_set(
   # packages that your targets need to run
-  packages = c("worcs", "dbscan", "umap", "data.table", "ggplot2", "reticulate")
+  packages = c("worcs", "dbscan", "umap", "data.table", "ggplot2", "reticulate", "igraph")
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
   # For distributed computing in tar_make(), supply a {crew} controller
@@ -46,18 +46,39 @@ tar_source()
 list(
   tar_target(
     name = df,
-    command = worcs::load_data(to_envir = FALSE)$embeddings
-  ),
-  tar_target(
+    command = dat_fun()
+  )
+  , tar_target(
     name = mat_vect,
     command = do.call(rbind, df[["embeddings"]]),
-  ),
-  tar_target(
+  )
+  , tar_target(
     name = res_umap,
     command = do_umap(mat_vect),
-  ),
-  tar_target(
-    name = res_hdbscan,
-    command = do_hdbscan(res_umap$layout)
   )
+  , tar_target(
+    name = res_hdbscan,
+    command = do_hdbscan(res_umap$layout, min_cluster_size = 20L)
+  )
+  , tar_target(
+    name = res_exemplars,
+    command = write_exemplar_metadata(df, res_umap, res_hdbscan)
+  )
+  , tar_target(
+    name = exmplrs,
+    command = yaml::read_yaml(res_exemplars)
+  )
+  , tar_target(
+    name = plot_dist_clust_file,
+    command = plot_dist_clust(res_hdbscan)
+  )
+  , tar_target(
+    name = plot_freq_file,
+    command = plot_cluster_freq(exmplrs, res_hdbscan)
+  )
+  , tar_target(
+    name = plot_graph_file,
+    command = plot_graph(df, exmplrs, res_hdbscan)
+  )
+  , tarchetypes::tar_render(manuscript, "index.rmd")
 )

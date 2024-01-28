@@ -1,8 +1,8 @@
 worcs_version: 0.1.14
 creator: vanlissa
-entry_point: manuscript/manuscript.Rmd
+entry_point: run.r
 recipe:
-  recipe: targets::tar_make()
+  recipe: source('run.r')
   terminal: no
 data:
   embeddings.rdata:

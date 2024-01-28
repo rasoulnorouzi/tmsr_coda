@@ -8,10 +8,9 @@
 rm(list=ls())
 
 # dependencies
-library(feather)
 library(arrow)
 library(stringr)
-library(fpc)
+
 library(dbscan)
 library(umap)
 
@@ -62,7 +61,7 @@ d_umap_values = d_umap$layout
 
 #### dbscan
 set.seed(8)
-dbscan_umap = fpc::dbscan(d_umap_values
+dbscan_umap = dbscan(d_umap_values
                           , eps = 0.20
                           , MinPts = 10
                           , method = 'raw')

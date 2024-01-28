@@ -1,10 +1,14 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-anal|function|1627e03a2644385f|||||||||||||||
-df|stem|4a336c708e454532|ee83524261454099|ef46db3751d8e999|-1886497314||t19745.7471449539s|bc7f38d24d5c3f78|32480539|rds|local|vector|||1.71||
-do_hdbscan|function|14998691fdfbe47a|||||||||||||||
+dat_fun|function|b409575e7938977e|||||||||||||||
+df|stem|4a336c708e454532|83523dca802dad46|c013fa2ca9d1b1b0|-1886497314||t19749.3435788795s|bc7f38d24d5c3f78|32480539|rds|local|vector|||1.76||
+do_hdbscan|function|c44289abb9fa059b|||||||||||||||
 do_umap|function|007d3b39a42eecb0|||||||||||||||
-mat_vect|stem|501222c09aa96a34|a480fd1d61cedb50|6e49bf2e061b0638|2084078108||t19745.7471957456s|0990764bc1a413ef|32772540|rds|local|vector|||0.14||
-out|stem|4de8b7887bf3a5fc|f18a6c840c829ffe|c542caf867f16a5c|10266206||t19745.7377988331s|710c4f02beb47ff7|57|rds|local|vector|||0||
+exmplrs|stem|63217850e35655e4|00b2ad4832b92f6c|ce55b7fbbd00a450|-1551116986||t19749.3912411497s|1a0c80b2ac7c1f8a|40616|rds|local|vector|||0||
+manuscript|stem||080ec11b3c753972|05258b1984ab2c5e|-2124760869||t19749.3979320398s||0|file|local|vector|||0.86||targets data store .._targets not found. Utility functions like tar_read and tar_load require a preexisting targets data store default _targets created by tar_make, tar_make_clustermq, or tar_make_future. Details httpsbooks.ropensci.orgtargetsdata.html
+mat_vect|stem|501222c09aa96a34|a480fd1d61cedb50|6e49bf2e061b0638|2084078108||t19749.310181553s|0990764bc1a413ef|32772540|rds|local|vector|||0.15||
+plot_dist_clust|stem|4b593b61445ea7f7|fe50aa015d535609|a4a052397cdf65e3|-24263038||t19749.3967604137s|d586f792a395948c|68|rds|local|vector|||0.31||
 remove_outliers|function|dfe062556f35de47|||||||||||||||
-res_hdbscan|stem|044a2cbfd3dd095a|68a21108978f48ab|c95c5d3004ae7575|154728867||t19745.7556152583s|995e44a2eedca393|207370|rds|local|vector|||1.86||
-res_umap|stem|4761f64345785bd3|1a43823d28d9845e|783d114561ecce52|-1960806637||t19745.7475667795s|b1a768290c54f65b|359330|rds|local|vector|||31.94||
+res_exemplars|stem|ffb6ee03cb557916|2cef4c7ceeacf32e|ca69305d5a59eba4|-613690634||t19749.3912409712s|425d385953b3c542|67|rds|local|vector|||0.03||
+res_hdbscan|stem|3311cacce7732d0f|4730326b1b4a641b|24b119380f6a7e88|154728867||t19749.3598828462s|1dac43c611f838b3|192523|rds|local|vector|||2.33||
+res_umap|stem|4761f64345785bd3|1a43823d28d9845e|783d114561ecce52|-1960806637||t19749.3104098488s|b1a768290c54f65b|359330|rds|local|vector|||19.66||
+write_exemplar_metadata|function|4d776cc5777f6b40|||||||||||||||
