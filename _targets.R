@@ -66,7 +66,8 @@ list(
   )
   , tar_target(
     name = exmplrs,
-    command = yaml::read_yaml(res_exemplars)
+    command = yaml::read_yaml(res_exemplars),
+    cue = tar_cue(mode = "always")
   )
   , tar_target(
     name = plot_dist_clust_file,
