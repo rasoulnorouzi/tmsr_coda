@@ -1,6 +1,7 @@
 # importing pandas for reading the json file and writing the output to a feather file
 # importing process_documents from embedding_extractor.py to process the documents and get the embeddings
-# %%
+# importing preprocess_text from preprocessing.py to clean the data
+
 import numpy as np
 import pandas as pd
 from embedding_extractor import process_documents
@@ -54,4 +55,4 @@ def main(input_file, output_file):
 
 if __name__ == '__main__':
     processed_df = main(input_file, output_file)
-# %%
+
