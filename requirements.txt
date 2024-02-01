@@ -4,3 +4,5 @@ nltk==3.8.1
 pandas==1.5.3
 torch==2.1.0+cu121
 numpy==1.23.5
+wordninja==2.0.0
+langdetect
