@@ -1,11 +1,9 @@
-# %%
 import numpy as np
 import pandas as pd
 import stanza
 from transformers import AutoTokenizer, AutoModel
 import torch
 import nltk
-from nltk.stem import PorterStemmer
 from nltk.tokenize import sent_tokenize
 from nltk.corpus import stopwords
 import random
@@ -20,7 +18,6 @@ torch.cuda.manual_seed_all(random_seed)
 nltk.download('punkt')
 nltk.download('stopwords')
 stanza.download('en')
-stemmer = PorterStemmer()
 
 # loading the SciBERT tokenizer and model, it may take a while
 tokenizer = AutoTokenizer.from_pretrained("allenai/scibert_scivocab_uncased")
