@@ -15,8 +15,8 @@ library(arrow)
 df <- arrow::read_feather("embedding_vectors_1.feather")
 names(df) <- c("doc_id", "word", "sentence_id", "subword", "embeddings")
 df$sentence_id <- as.integer(as.factor(paste0(df$doc_id, "_", df$sentence_id)))
-unique_words = !duplicated(df$word)
-df <- df[unique_words,]
+# unique_words = !duplicated(df$word)
+# df <- df[unique_words,]
 open_data(data = df, filename = "embeddings.rdata", codebook = NULL, value_labels = NULL,
           save_expression = saveRDS(object = data, file = filename),
           load_expression = readRDS(file = filename))

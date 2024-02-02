@@ -58,28 +58,28 @@ list(
   )
   , tar_target(
     name = res_hdbscan,
-    command = do_hdbscan(res_umap$layout, min_cluster_size = 20L)
+    command = do_hdbscan(res_umap$layout, min_cluster_size = 100L, min_samples = 5L,)
   )
   , tar_target(
     name = res_exemplars,
     command = write_exemplar_metadata(df, res_umap, res_hdbscan)
   )
-  , tar_target(
-    name = exmplrs,
-    command = yaml::read_yaml(res_exemplars),
-    cue = tar_cue(mode = "always")
-  )
-  , tar_target(
-    name = plot_dist_clust_file,
-    command = plot_dist_clust(res_hdbscan)
-  )
-  , tar_target(
-    name = plot_freq_file,
-    command = plot_cluster_freq(exmplrs, res_hdbscan)
-  )
-  , tar_target(
-    name = plot_graph_file,
-    command = plot_graph(df, exmplrs, res_hdbscan)
-  )
-  , tarchetypes::tar_render(manuscript, "index.rmd")
+  # , tar_target(
+  #   name = exmplrs,
+  #   command = yaml::read_yaml(res_exemplars),
+  #   cue = tar_cue(mode = "always")
+  # )
+  # , tar_target(
+  #   name = plot_dist_clust_file,
+  #   command = plot_dist_clust(res_hdbscan)
+  # )
+  # , tar_target(
+  #   name = plot_freq_file,
+  #   command = plot_cluster_freq(exmplrs, res_hdbscan)
+  # )
+  # , tar_target(
+  #   name = plot_graph_file,
+  #   command = plot_graph(df, exmplrs, res_hdbscan)
+  # )
+  # , tarchetypes::tar_render(manuscript, "index.rmd")
 )
