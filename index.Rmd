@@ -31,8 +31,7 @@ Out of `r length(df[["word"]])` words, `r tab_clust[["-1"]]` were classified as 
 The remaining words were distributed across clusters as follows:
 
 ```{r figdist}
-tar_load(plot_dist_clust_file)
-knitr::include_graphics(paste0(plot_dist_clust_file, fig_format))
+knitr::include_graphics(paste0("plot_dist_clust", fig_format))
 ```
 
 ## Construct Frequency

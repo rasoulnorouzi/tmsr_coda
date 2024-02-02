@@ -80,11 +80,6 @@ list(
     cue = tar_cue(mode = "always")
   )
   , tar_target(
-    name = plot_dist_clust_file,
-    command = plot_dist_clust(res_hdbscan),
-    cue = tar_cue(mode = "always")
-  )
-  , tar_target(
     name = plot_freq_file,
     command = plot_cluster_freq(exmplrs, res_hdbscan),
     cue = tar_cue(mode = "always")

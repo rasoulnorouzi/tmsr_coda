@@ -143,21 +143,6 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
 }
 
 
-plot_dist_clust <- function(res_hdbscan){
-  df_plot <- as.data.frame.table(table(res_hdbscan$labels))
-  df_plot <- df_plot[!df_plot$Var1 == "-1", ]
-  library(ggplot2)
-  library(svglite)
-  p = ggplot(df_plot, aes(x = Freq)) +
-    geom_density() +
-    labs(x = "Cluster frequency", y = "Density") +
-    theme_bw() +
-    scale_x_continuous(limits = range(df_plot$Freq), expand = c(0,0))
-  ggsave("plot_dist_clust.png", p, device = "png", width = 210, height = 200, units = "mm")
-  ggsave("plot_dist_clust.svg", p, device = "svg", width = 210, height = 200, units = "mm")
-  return("plot_dist_clust")
-}
-
 ## Construct frequencies
 pretty_words <- function(x){
   out <- x
@@ -172,26 +157,36 @@ pretty_words <- function(x){
 }
 
 plot_cluster_freq <- function(exmplrs, res_hdbscan){
-  word_freq <- as.data.frame.table(table(res_hdbscan$labels))
-  names(word_freq) <- c("Construct", "Frequency")
-  word_freq$Construct <- sapply(exmplrs, `[[`, "label")
-  word_freq <- word_freq[as.logical(sapply(exmplrs, `[[`, "include")), ]
-  word_freq <- data.frame(do.call(rbind, lapply(unique(word_freq$Construct), function(w){
-    data.frame(Construct = w, Frequency = sum(word_freq$Frequency[word_freq$Construct == w]))
-  })))
-  write.csv(word_freq, "cluster_freq.csv", row.names = FALSE)
-  df_plot <- word_freq
-  # categ <- read.csv("study1_categorization.csv", stringsAsFactors = FALSE)
-  # df_plot$cat <- categ$category[match(df_plot$Construct, categ$name)]
-  # df_plot$baseline <- as.character(df_plot$Construct %in% baseline)
-  # df_plot$faded <- df_plot$Construct %in% baseline
-  df_plot$Construct <- pretty_words(df_plot$Construct)
+  library(ggplot2)
+  library(svglite)
+
+  df_plot <- do.call(rbind, lapply(exmplrs[-1], function(i){
+    data.frame(lab = i$label,
+               freq = sum(as.integer(gsub("^.*\\s(\\d{1,})$", "\\1", strsplit(i$words, ", ")[[1]]))),
+               include = i$include
+    )
+  }))
+  df_plot <- df_plot[df_plot$include, ]
+  df_plot <- tapply(df_plot$freq, factor(df_plot$lab), sum)
+  df_plot <- as.data.frame.table(df_plot)
+
+  p = ggplot(df_plot, aes(x = Freq)) +
+    geom_density() +
+    labs(x = "Unique words per cluster", y = "Density") +
+    theme_bw() +
+    scale_x_continuous(limits = range(df_plot$Freq), expand = c(0,0))
+  ggsave("plot_dist_clust.png", p, device = "png", width = 210, height = 200, units = "mm")
+  ggsave("plot_dist_clust.svg", p, device = "svg", width = 210, height = 200, units = "mm")
+  names(df_plot) <- c("Construct", "Frequency")
+  write.csv(df_plot, "cluster_freq.csv", row.names = FALSE)
+
+  df_plot$Construct <- pretty_words(as.character(df_plot$Construct))
   df_plot <- df_plot[order(df_plot$Frequency, decreasing = TRUE), ]
   df_plot$Construct <- ordered(df_plot$Construct, levels = df_plot$Construct[order(df_plot$Frequency)])
 
   #cat_cols <- c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")
   #df_plot$cat <- ordered(df_plot$cat, levels = c("Outcome", "Indicator", "Cause", "Protective"))
-  range(df_plot$Frequency)
+  #range(df_plot$Frequency)
   p <- ggplot(df_plot, aes(y = Construct, x = Frequency)) +
     geom_segment(aes(x = 0, xend = Frequency,
                      y = Construct, yend = Construct
@@ -265,7 +260,9 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
   # Drop terms marked for exclusion
   dat <- dat[dat$include, -which(names(dat)=="include")]
   # Replace constructs with labels because some are merged
-  dat$construct <- as.integer(factor(dat$labels))
+  dat$construct <- factor(dat$labels)
+  labs <- levels(dat$construct)
+
   # Words only count once per document
   dat <- dat[!duplicated(dat), ]
   # Make coocurrence matrix
@@ -273,14 +270,14 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
   diag(V) <- 0
 
   df_plot <- as.data.frame.table(V)
-  labs <- sapply(exmplrs, `[[`, "label")[as.logical(sapply(exmplrs, `[[`, "include"))]
-  levels(df_plot$construct) <- labs
-  levels(df_plot$construct.1) <- labs
+
+  # levels(df_plot$construct) <- labs
+  # levels(df_plot$construct.1) <- labs
   names(df_plot) <- c("term1", "term2", "cooc")
   df_plot <- df_plot[as.vector(lower.tri(V)), ]
 
   # Drop some links?
-  df_plot <- df_plot[select_cooc(df_plot$cooc), ]
+  df_plot <- df_plot[suppressWarnings(select_cooc(df_plot$cooc)), ]
   # Create network ----------------------------------------------------------
   cluster_freq <- read.csv("cluster_freq.csv", stringsAsFactors = FALSE)
   edg <- df_plot
@@ -319,7 +316,7 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
   #E(g)$lty <- c(1, 5)[(!(edge.start == dysreg_vertex|edge.end == dysreg_vertex))+1]
 
   # Layout
-  set.seed(1) #4
+  set.seed(3) #4
   l1 <- l <- layout_with_fr(g)
   l1[,1] <- -1*l1[,1]
   set.seed(64)
@@ -328,9 +325,9 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
   }
   l2 <- layout_in_circle(g, order = shifter(V(g), -3))
 
-  node_font <- 4
+  node_font <- 3
   # Save files
-  svg("network.svg", width = 7, height=7, pointsize = 4)
+  svg("network.svg", width = 7, height=7, pointsize = 2)
   plot(g, edge.curved = 0, layout=l1,
        vertex.label.family = "sans",
        vertex.label.cex = node_font,
