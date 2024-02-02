@@ -54,6 +54,12 @@ tar_load(plot_graph_file)
 knitr::include_graphics(paste0(plot_graph_file, fig_format))
 ```
 
+
+```{r fignetcircle}
+tar_load(plot_graph_file)
+knitr::include_graphics(paste0(plot_graph_file, "_circle", fig_format))
+```
+
 ## Interactive Graph
 
 ```{r}

@@ -120,7 +120,10 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
   #   df$word[apply(exmpls, 1, FUN = function(x){which(rowSums(res_umap$layout == rep(x, each = nrow(res_umap$layout)))==length(x))})]
   # })
   words_by_clust <- split(df$word, factor(res_hdbscan$labels))
-  tab_words <- lapply(words_by_clust, table)
+  tab_words <- lapply(words_by_clust, function(w){
+    #w = words_by_clust[[371]]
+    sort(table(textstem::lemmatize_strings(w)), decreasing = TRUE)
+    })
   labs <- lapply(tab_words, function(x){
     sample(names(x)[x == max(x)], 1)
   })
@@ -128,7 +131,7 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
   for(i in seq_along(out)){
     out[[i]] <- list(
       label = labs[[i]],
-      words = paste0(words_by_clust[[i]], collapse = ", "),
+      words = paste0(paste(names(tab_words[[i]]), tab_words[[i]]), collapse = ", "),
       include = TRUE
     )
   }
@@ -173,6 +176,9 @@ plot_cluster_freq <- function(exmplrs, res_hdbscan){
   names(word_freq) <- c("Construct", "Frequency")
   word_freq$Construct <- sapply(exmplrs, `[[`, "label")
   word_freq <- word_freq[as.logical(sapply(exmplrs, `[[`, "include")), ]
+  word_freq <- data.frame(do.call(rbind, lapply(unique(word_freq$Construct), function(w){
+    data.frame(Construct = w, Frequency = sum(word_freq$Frequency[word_freq$Construct == w]))
+  })))
   write.csv(word_freq, "cluster_freq.csv", row.names = FALSE)
   df_plot <- word_freq
   # categ <- read.csv("study1_categorization.csv", stringsAsFactors = FALSE)
@@ -258,6 +264,8 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
                     labels)
   # Drop terms marked for exclusion
   dat <- dat[dat$include, -which(names(dat)=="include")]
+  # Replace constructs with labels because some are merged
+  dat$construct <- as.integer(factor(dat$labels))
   # Words only count once per document
   dat <- dat[!duplicated(dat), ]
   # Make coocurrence matrix
@@ -311,7 +319,7 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
   #E(g)$lty <- c(1, 5)[(!(edge.start == dysreg_vertex|edge.end == dysreg_vertex))+1]
 
   # Layout
-  set.seed(6) #4
+  set.seed(1) #4
   l1 <- l <- layout_with_fr(g)
   l1[,1] <- -1*l1[,1]
   set.seed(64)
@@ -320,37 +328,53 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
   }
   l2 <- layout_in_circle(g, order = shifter(V(g), -3))
 
-  p <- quote({
-    # Set margins to 0
-    par(mar=c(0,0,0,0),
-        mfrow=c(1,2))
-    plot(g, edge.curved = 0, layout=l1,
-         vertex.label.family = "sans",
-         vertex.label.cex = 0.8,
-         vertex.shape = "circle2",
-         #vertex.frame.color = 'gray40',
-         vertex.label.color = 'black',      # Color of node names
-         vertex.label.font = 1,         # Font of node names
-         vertex.frame.width = 2
-    )
-    #legend(x=-1.1, y=1.1, names(cat_cols), pch=21, col="#777777", pt.bg=cat_cols, pt.cex=2, cex=.8, bty="n", ncol=1)
-    plot(g, edge.curved = 0, layout=l2,
-         vertex.label.family = "sans",
-         vertex.label.cex = 0.8,
-         vertex.shape = "circle2",
-         #vertex.frame.color = 'gray40',
-         vertex.label.color = 'black',      # Color of node names
-         vertex.label.font = 1,         # Font of node names
-         vertex.frame.width = 2
-    )
-  })
-
+  node_font <- 4
   # Save files
   svg("network.svg", width = 7, height=7, pointsize = 4)
-  eval(p)
+  plot(g, edge.curved = 0, layout=l1,
+       vertex.label.family = "sans",
+       vertex.label.cex = node_font,
+       vertex.shape = "circle2",
+       #vertex.frame.color = 'gray40',
+       vertex.label.color = 'black',      # Color of node names
+       vertex.label.font = 1,         # Font of node names
+       vertex.frame.width = 2
+  )
   dev.off()
   png("network.png", width = 2400, height=2400, pointsize = 12)
-  eval(p)
+  plot(g, edge.curved = 0, layout=l1,
+       vertex.label.family = "sans",
+       vertex.label.cex = node_font,
+       vertex.shape = "circle2",
+       #vertex.frame.color = 'gray40',
+       vertex.label.color = 'black',      # Color of node names
+       vertex.label.font = 1,         # Font of node names
+       vertex.frame.width = 2
+  )
+  dev.off()
+
+  # Layout circle
+  svg("network_circle.svg", width = 7, height=7, pointsize = 4)
+  plot(g, edge.curved = 0, layout=l2,
+       vertex.label.family = "sans",
+       vertex.label.cex = node_font,
+       vertex.shape = "circle2",
+       #vertex.frame.color = 'gray40',
+       vertex.label.color = 'black',      # Color of node names
+       vertex.label.font = 1,         # Font of node names
+       vertex.frame.width = 2
+  )
+  dev.off()
+  png("network_circle.png", width = 2400, height=2400, pointsize = 12)
+  plot(g, edge.curved = 0, layout=l2,
+       vertex.label.family = "sans",
+       vertex.label.cex = node_font,
+       vertex.shape = "circle2",
+       #vertex.frame.color = 'gray40',
+       vertex.label.color = 'black',      # Color of node names
+       vertex.label.font = 1,         # Font of node names
+       vertex.frame.width = 2
+  )
   dev.off()
   return("network")
 }
