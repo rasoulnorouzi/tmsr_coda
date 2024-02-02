@@ -14,7 +14,6 @@ random.seed(random_seed)
 np.random.seed(random_seed)
 torch.manual_seed(random_seed)
 torch.cuda.manual_seed_all(random_seed)
-
 # Download necessary NLTK data and load models
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -39,7 +38,8 @@ def split_into_sentences(text):
     Returns:
     list: A list of sentences.
     """
-    sentences = sent_tokenize(text.lower())  # Convert text to lowercase
+    sentences = sent_tokenize(text)  # Convert text to lowercase
+    # sentences = text.split('.')  # Convert text to lowercase
     return sentences
 
 
@@ -108,7 +108,6 @@ def store_data(doc_id, sentences):
     for sentence_id, sentence in enumerate(sentences):
         inputs, embeddings = get_bert_embeddings_and_tokens(sentence)
         pos_tags = get_pos_tags(sentence)
-
         # Filter out stop words after POS tagging
         filtered_words = [(word, pos) for word, pos in pos_tags if word.lower() not in stop_words and is_pos_tag(pos)]
 
@@ -127,15 +126,15 @@ def store_data(doc_id, sentences):
                 # As we feed in each step a sentence to the model, the model will return the embedding for each token in the sentence
                 # for batch and text level the code should be changed!!!
 
-                idx = (inputs['input_ids'] == token_id).nonzero(as_tuple=True)
-                embedding = embeddings[idx].view(-1).tolist()
+                idx = (inputs['input_ids'] == token_id).nonzero(as_tuple=True)[1][0]
+                embedding = embeddings[0][idx].view(-1).tolist()
 
                 word_embeddings.append(embedding)
                 # we already have the token ids and embeddings, so we can convert the token ids to words(tokens)
                 word_subwords.append(tokenizer.convert_ids_to_tokens(token_id))
 
-            # This is an if statement to handle the possible error of empty word embeddings
-            if word_embeddings:
+            # This is an if statement to handle the possible error of empty word embeddings and filter words with length less than 2
+            if word_embeddings and len(word) > 2:
                 entry = {
                     'Doc ID': doc_id,
                     'Word': word,
@@ -166,3 +165,4 @@ def process_documents(chunk_data):
         except Exception as e:
             print(f'Error processing document {doc_id}: {e}. Skipping...')
     return processed_data
+
