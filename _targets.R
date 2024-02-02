@@ -81,15 +81,18 @@ list(
   )
   , tar_target(
     name = plot_dist_clust_file,
-    command = plot_dist_clust(res_hdbscan)
+    command = plot_dist_clust(res_hdbscan),
+    cue = tar_cue(mode = "always")
   )
   , tar_target(
     name = plot_freq_file,
-    command = plot_cluster_freq(exmplrs, res_hdbscan)
+    command = plot_cluster_freq(exmplrs, res_hdbscan),
+    cue = tar_cue(mode = "always")
   )
   , tar_target(
     name = plot_graph_file,
-    command = plot_graph(df, exmplrs, res_hdbscan)
+    command = plot_graph(df, exmplrs, res_hdbscan),
+    cue = tar_cue(mode = "always")
   )
-  , tarchetypes::tar_render(manuscript, "index.rmd")
+  , tarchetypes::tar_render(manuscript, "index.rmd", cue = tar_cue(mode = "always"))
 )
