@@ -26,7 +26,74 @@ tar_load(res_hdbscan)
 tab_clust <- table(res_hdbscan$labels)[names(exmplrs)]
 ```
 
-HDBSCAN with minimum cluster size of 20 words found `r length(exmplrs)-1` clusters.
+# The Current Study
+
+The current study seeks to generate a nomological net of the literature on human cooperation by means of a comprehensive text mining systematic review (TMSR).
+This is an inductive study, and as such, does not test hypotheses [@wagenmakersCreativityVerificationCyclePsychological2018].
+The aims of the study are to identify the relevant constructs in the body of literature and to map potential relationships between constructs based on their co-occurrence within studies.
+The resulting graph provides a conceptual overview of this body of literature.
+		
+This text mining systematic review considered the *frequency* with which a construct is covered in the literature, or *term frequency*, to be indicative of its relevance.
+Term frequency can be rank ordered to identify the most relevant constructs.
+Furthermore, the frequency with which constructs are investigated together within publications, or *co-occurrence*, is considered to be indicative of a putative relationship between them.
+These two metrics can be jointly visualized as a network,
+thereby "mapping" constructs relevant to cooperation.
+
+Inductive research affords the researcher with substantial creativity [@wagenmakersCreativityVerificationCyclePsychological2018].
+This means that subjective decisions are made throughout the analysis process.
+To ensure that all such decisions are properly documented,
+all code, data, and the historical record of this project are available in a public research repository at [https://github.com/cjvanlissa/tmsr_coda](https://github.com/cjvanlissa/tmsr_coda). 
+The Workflow for Open Reproducible Code in Science was used to make all analyses reproducible [WORCS, @vanlissaWORCSWorkflowOpen2020].
+Reuse of the analysis code and secondary analysis of the data are encouraged.
+
+# Methods
+
+## Data Cleaning
+
+The corpus consisted of XXX abstracts, retrieved from XXX.
+These were all available abstracts of papers included in the Cooperation Databank as of DATE.
+We first removed missing abstracts, those shorter than 200 characters (approximately 30 words), those not formatted as plain text, and those not written in English.
+The remaining plain-text abstracts were further preprocessed by removing HTML tags, email addresses, control characters, ligatures, initials, punctuation, and numbers. 
+As we observed some concatenated sentences, we used the `wordninja` package to extract individual words from any string exceeding a length of 15 characters.
+Finally, we normalized spacing throughout the abstracts.
+
+## Vector Embedding
+
+Our analysis focused on nouns and adjectives, as these are (jointly) able to represent constructs.
+Nouns most commonly reference theoretically meaningful constructs; for example, the words "prisoner's dilemma" will both be tagged as nouns.
+However, adjectives occasionally also capture meaningful constructs; for example, the words "competitive individuals" will be tagged as an adjective and a noun. In this case, the word "individuals" does not relate to a theoretically meaningful construct, but the adjective "competitive" does.
+We performed Part-Of-Speech (POS) tagging using the `stanza` pipeline to identify nouns and adjectives; henceforth referred to jointly as words.
+We obtained numerical representations for the words using the pretrained SciBERT language model.
+This model is finetuned on scientific text data, including studies of cooperation, and should thus provide high quality context-aware numerical representations.
+Moreover, SciBERT and other BERT models are able to handle words that did not occur in the training vocabulary, thus allowing a complete-data analysis.
+Each word was embedded using the rest of the sentence as context.
+Simply put: Each word is represented as a string of numbers, but the same word does not always have the same numeric representation.
+For example, the word "game" would be represented differently if it was preceded by "prisoner" versus "dictator".
+As this method requires uniform input data, sentences were truncated to 512 words.
+During embedding, words are broken up into constituent parts (e.g., "non-compliance" returns separate embeddings for "non" and "compliance").
+We averaged embeddings of subwords within words.
+This resulted in 122251 unique words, each represented by 768 numbers.
+
+## Clustering
+
+To cluster individual words into constructs, we used Hierarchical Density-Based Spatial Clustering of Applications with Noise (HDBSCAN).
+This density-based clustering algorithm can identify clusters of varying shapes and sizes, while treating datapoints far away from any cluster as noise.
+This is useful because we expect many words to be irrelevant, and only few are expected to represent theoretically relevant constructs.
+Importantly, HDBSCAN performs poorly with high-dimensional data.
+We therefore first used Uniform Manifold Approximation and Projection (UMAP) to reduce the original 768 dimensions to 10.
+UMAP is a dimension reduction algorithm, but unlike PCA, it is non-linear and balances the preservation of the global and local structure of the data,
+which has been shown to work well when clustering word vector embeddings (https://ieeexplore.ieee.org/abstract/document/9640285).
+We extracted 10 dimensions, which is relatively high and thus ensures that no important information is lost.
+We used cosine similarity as a distance metric, which is conventional when working with vector embeddings.
+Furthermore, we specified a relatively small number of 5 neighbor points, 
+which means the solution focuses more on local structure than global structure (which makes sense here, as the clusters will consist of local neighbors),
+and we specified a very low minimum distance value of 0.001 to ensure that points that are close together remain very close together, which should aid subsequent clustering.
+Subsequently, we performed HDBSCAN on the 10-dimensional UMAP vectors.
+For HDBSCAN, we used Euclidean distance,
+with a minimum cluster size of 100 words and a relatively large value of 15 for the number of surrounding datapoints needed to consider something a cluster centroid.
+These values are relatively arbitrary, but their effect is that we will only obtain clusters of at least 100 words, and that clusters will be restricted to relatively dense areas.
+
+HDBSCAN with minimum cluster size of 100 words found `r length(exmplrs)-1` clusters.
 Out of `r length(df[["word"]])` words, `r tab_clust[["-1"]]` were classified as noise.
 The remaining words were distributed across clusters as follows:
 
@@ -44,6 +111,14 @@ knitr::include_graphics(paste0(plot_freq_file, fig_format))
 ```
 
 ## Co-occurrence Graph
+
+To map the literature, a term co-occurrence matrix was computed,
+which represents how frequently words occurred within the same document (see Figure \@ref(fig:tmnetworks)).
+In total, there were XXX co-occurrence relationships.
+To aid interpretability, small coefficients were pruned based on a negative binomial distribution,
+retaining co-occurrences exceeding the $97.5^{th}$ percentile.
+Note that this is a subjective criterion, which corresponded to terms that co-occurred in more than XXX documents.
+After pruning, XXX co-occurrence relationships remained.
 
 This graph illustrates which constructs co-occur within documents,
 with node size weighted by construct frequency and edge linesize weighted by the frequency of co-occurrence (logarithmically scaled).
