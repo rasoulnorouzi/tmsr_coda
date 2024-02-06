@@ -127,7 +127,8 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
     })
   tab_next_words <- lapply(next_words, function(w){
     #w = words_by_clust[[371]]
-    sort(table(textstem::lemmatize_strings(w)), decreasing = TRUE)[1:3]
+    out <- sort(table(textstem::lemmatize_strings(w)), decreasing = TRUE)
+    out[1:3]/sum(out)
   })
   labs <- lapply(tab_words, function(x){
     sample(names(x)[x == max(x)], 1)
@@ -137,7 +138,7 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
     out[[i]] <- list(
       label = labs[[i]],
       words = paste0(paste(names(tab_words[[i]]), tab_words[[i]]), collapse = ", "),
-      next_words = paste0(paste(names(tab_next_words[[i]]), tab_next_words[[i]]), collapse = ", "),
+      next_words = paste0(paste(names(tab_next_words[[i]]), formatC(tab_next_words[[i]], digits = 2, format = "f")), collapse = ", "),
       include = TRUE
     )
   }
