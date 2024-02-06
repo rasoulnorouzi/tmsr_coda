@@ -120,10 +120,15 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
   #   df$word[apply(exmpls, 1, FUN = function(x){which(rowSums(res_umap$layout == rep(x, each = nrow(res_umap$layout)))==length(x))})]
   # })
   words_by_clust <- split(df$word, factor(res_hdbscan$labels))
+  next_words <- split(df$word[-1], factor(res_hdbscan$labels[-length(res_hdbscan$labels)]))
   tab_words <- lapply(words_by_clust, function(w){
     #w = words_by_clust[[371]]
     sort(table(textstem::lemmatize_strings(w)), decreasing = TRUE)
     })
+  tab_next_words <- lapply(next_words, function(w){
+    #w = words_by_clust[[371]]
+    sort(table(textstem::lemmatize_strings(w)), decreasing = TRUE)[1:3]
+  })
   labs <- lapply(tab_words, function(x){
     sample(names(x)[x == max(x)], 1)
   })
@@ -132,6 +137,7 @@ write_exemplar_metadata <- function(df, res_umap, res_hdbscan){
     out[[i]] <- list(
       label = labs[[i]],
       words = paste0(paste(names(tab_words[[i]]), tab_words[[i]]), collapse = ", "),
+      next_words = paste0(paste(names(tab_next_words[[i]]), tab_next_words[[i]]), collapse = ", "),
       include = TRUE
     )
   }
