@@ -137,6 +137,15 @@ knitr::include_graphics(paste0(plot_graph_file, "_circle", fig_format))
 ## Interactive Graph
 
 ```{r}
+library(plotly)
+p <- readRDS("network.rdata")
+p <- p + geom_text(data = p$layers[[3]]$data, aes(x = X1, y = X2, label = name))
+plotly::ggplotly(p)
+
+```
+
+
+```{r eval = FALSE}
 select_cooc <- function(cooc, q = .95){
 
   fit <- MASS::fitdistr(cooc, "negative binomial")

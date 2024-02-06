@@ -248,10 +248,9 @@ add.vertex.shape("circle2", clip=igraph.shape.noclip,
 
 
 
-select_cooc <- function(cooc, q = .95){
-
+select_cooc <- function(cooc, p = .95){
   fit <- MASS::fitdistr(cooc, "negative binomial")
-  thres <- qnbinom(q, size=fit$estimate["size"], mu=fit$estimate["mu"])
+  thres <- qnbinom(p, size=fit$estimate["size"], mu=fit$estimate["mu"])
   return(cooc > thres)
 }
 
@@ -380,5 +379,123 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
        vertex.frame.width = 2
   )
   dev.off()
+  return("network")
+}
+
+
+library(igraph)
+library(ggplot2)
+library(ggrepel)
+# df <- sotu::sotu_meta
+# set.seed(1)
+# dat <- data.frame(construct = factor(df$president), doc = sample.int(10, size = length(df$party), replace = TRUE))
+#
+# select_cooc <- function(cooc, r = .95){
+#
+#   fit <- MASS::fitdistr(cooc, "negative binomial")
+#   thres <- qnbinom(q, size=fit$estimate["size"], mu=fit$estimate["mu"])
+#   return(cooc > thres)
+# }
+
+plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
+  include <- as.logical(sapply(exmplrs, `[[`, "include")[as.character(res_hdbscan$labels)])
+  labels <- sapply(exmplrs, `[[`, "label")[as.character(res_hdbscan$labels)]
+  dat <- data.frame(doc = as.integer(factor(df$doc_id)),
+                    include,
+                    construct = labels)
+  # Drop terms marked for exclusion
+  dat <- dat[dat$include, -which(names(dat)=="include")]
+  # Replace constructs with labels because some are merged
+  dat$construct <- factor(dat$construct)
+
+  duplicates = FALSE
+  # Dat must have factor called construct and integer ID called doc
+
+  # Words only count once per document
+  if(!duplicates) dat <- dat[!duplicated(dat), ]
+  # Make table
+  cluster_tab <- table(dat$construct)
+  cluster_freq <- data.frame(construct = names(cluster_tab), frequency = as.integer(cluster_tab))
+
+  # Make coocurrence matrix
+  V <- crossprod(table(dat[, c("doc", "construct")]))
+  diag(V) <- 0
+
+  df_plot <- as.data.frame.table(V)
+  names(df_plot) <- c("term1", "term2", "cooc")
+  df_plot <- df_plot[as.vector(lower.tri(V)), ]
+
+  # Drop some links?
+  if(!is.null(prune)) df_plot <- df_plot[suppressWarnings(select_cooc(df_plot$cooc, p = prune)), ]
+  # Create network ----------------------------------------------------------
+  edg <- df_plot
+  edg$width = edg$cooc
+
+  vert <- data.frame(name = as.character(unique(c(edg$term1, edg$term2))))
+  vert$size <- cluster_freq$frequency[match(vert$name, cluster_freq$construct)]
+
+
+  vert$size <- scales::rescale(log(vert$size), c(4, 12))
+
+  g <- igraph::graph_from_data_frame(edg, vertices = vert,
+                                     directed = FALSE)
+
+  # edge thickness
+  E(g)$width <- scales::rescale(sqrt(E(g)$width), to = c(.5, 8))
+
+  edge.start <- ends(g, es=E(g), names = FALSE)[,1]
+  edge.end <- ends(g, es=E(g), names = FALSE)[,2]
+
+  # Layout
+  set.seed(3) #4
+  lo <- layout_with_fr(g)
+  vert <- data.frame(lo, vert)
+  vert$fill <- ordered(vert$size)
+  edg$width <- scales::rescale(edg$width, to = c(.5, 2))
+  df_from <- vert[edge.start, c("X1", "X2")]
+  names(df_from) <- c("xstart", "ystart")
+  df_to <- vert[edge.end, c("X1", "X2")]
+  names(df_to) <- c("xend", "yend")
+  edg <- data.frame(df_from, df_to, edg)
+
+  p <- ggplot(data = NULL) +
+    # Edges
+    geom_segment(data = edg, aes(x = xstart, y = ystart, xend = xend, yend = yend, linewidth = width))+
+    geom_point(data = vert, aes(x = X1, y = X2, size = size, fill = size), colour="black",pch=21, alpha = 1) +
+    scale_fill_gradient(high = "#FF0000", low = "#FFFF00") +
+    ggrepel::geom_label_repel(data = vert, aes(x = X1, y = X2, label = name), max.overlaps = 25) +
+
+    theme_void() +
+    scale_linewidth(range = c(1, 3)) +
+    theme(legend.position = "none")
+  ggsave("network.svg", p, device = "svg", width = 7, height = 7, units = "in")
+  ggsave("network.png", p, device = "png", width = 7, height = 7, units = "in")
+  saveRDS(p, "network.RData")
+  set.seed(64)
+  shifter <- function(x, n = 1) {
+    if (n == 0) x else c(tail(x, -n), head(x, n))
+  }
+  lo <- layout_in_circle(g, order = shifter(V(g), -3))
+
+  vert[, c(1:2)] <- lo
+  df_from <- vert[edge.start, c("X1", "X2")]
+  names(df_from) <- c("xstart", "ystart")
+  df_to <- vert[edge.end, c("X1", "X2")]
+  names(df_to) <- c("xend", "yend")
+  edg[,c("xstart", "ystart", "xend", "yend")] <- data.frame(df_from, df_to)
+
+  p <- ggplot(data = NULL) +
+    # Edges
+    geom_segment(data = edg, aes(x = xstart, y = ystart, xend = xend, yend = yend, linewidth = width))+
+    geom_point(data = vert, aes(x = X1, y = X2, size = size, fill = size), colour="black",pch=21, alpha = 1) +
+    scale_fill_gradient(high = "#FF0000", low = "#FFFF00") +
+    ggrepel::geom_label_repel(data = vert, aes(x = X1, y = X2, label = name), max.overlaps = 25) +
+
+    theme_void() +
+    scale_linewidth(range = c(1, 3)) +
+    theme(legend.position = "none")
+  ggsave("network_circle.svg", p, device = "svg", width = 7, height = 7, units = "in")
+  ggsave("network_circle.png", p, device = "png", width = 7, height = 7, units = "in")
+
   return("network")
 }
