@@ -167,6 +167,32 @@ forceNetwork(Links = edg, Nodes = nod, Source = "Source", Target = "Target", Nod
 
 ```
 
+## Node Centrality
+
+We estimated the relative importance of nodes in terms of degree centrality (the number of connections each node has) because the network structure was sparse, with just a few central constructs.
+
+```{r}
+df_plot <- read.csv("node_centrality.csv", stringsAsFactors = F)
+library(ggplot2)
+names(df_plot) <- c("Construct", "Frequency")
+df_plot$Construct <- ordered(df_plot$Construct, levels = df_plot$Construct[order(df_plot$Frequency)])
+p <- ggplot(df_plot, aes(y = Construct, x = Frequency)) +
+    geom_segment(aes(x = 0, xend = Frequency,
+                     y = Construct, yend = Construct
+                     #, linetype = faded
+    ), colour = "grey50"
+    ) +
+    geom_vline(xintercept = 0, colour = "grey50", linetype = 1) + xlab("Node centrality (degree)") +
+    geom_point(data = df_plot, colour = "black", fill = "black", shape = 21, size = 1.5) +
+    scale_x_sqrt() +
+    theme_bw() + theme(panel.grid.major.x = element_blank(),
+                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank(),
+                       legend.position = c(.70,.125),
+                       legend.title = element_blank(),
+                       axis.text.y = element_text(hjust=0, vjust = 0, size = 6))
+p
+```
+
 
 ## Construct Details
 

@@ -163,7 +163,7 @@ pretty_words <- function(x){
   out
 }
 
-plot_cluster_freq <- function(exmplrs, res_hdbscan){
+plot_cluster_freq <- function(exmplrs, res_hdbscan, prune = .99){
   library(ggplot2)
   library(svglite)
 
@@ -177,11 +177,19 @@ plot_cluster_freq <- function(exmplrs, res_hdbscan){
   df_plot <- tapply(df_plot$freq, factor(df_plot$lab), sum)
   df_plot <- as.data.frame.table(df_plot)
 
+  fit <- MASS::fitdistr(df_plot$Freq, "negative binomial")
+  # thres <- qnbinom(p, size=fit$estimate["size"], mu=fit$estimate["mu"])
+  # return(cooc > thres)
+
   p = ggplot(df_plot, aes(x = Freq)) +
     geom_density() +
-    labs(x = "Unique words per cluster", y = "Density") +
+    labs(x = "Number of words per cluster", y = "Density") +
     theme_bw() +
     scale_x_continuous(limits = range(df_plot$Freq), expand = c(0,0))
+
+  p <- p + geom_function(data = data.frame(x = as.integer(sort(unique(df_plot$Freq)))), aes(x = x),
+                    fun = function(x){ dnbinom(x = round(x), size=fit$estimate["size"], mu=fit$estimate["mu"])}, colour = "red") #+
+    #geom_vline(xintercept = qnbinom(p = prune, size=fit$estimate["size"], mu=fit$estimate["mu"]))
   ggsave("plot_dist_clust.png", p, device = "png", width = 210, height = 200, units = "mm")
   ggsave("plot_dist_clust.svg", p, device = "svg", width = 210, height = 200, units = "mm")
   names(df_plot) <- c("Construct", "Frequency")
@@ -427,6 +435,11 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
 
   # Drop some links?
   if(!is.null(prune)) df_plot <- df_plot[suppressWarnings(select_cooc(df_plot$cooc, p = prune)), ]
+
+  # Calculate centrality
+  node_centrality <- sort(sapply(levels(df_plot$term1), function(l){ sum(df_plot$cooc[df_plot$term1 == l | df_plot$term2 == l]) })) #sort(igraph::degree(g_centr, mode="all"))
+  write.csv(data.frame(construct = names(node_centrality), centrality_degree = node_centrality), "node_centrality.csv", row.names = FALSE)
+
   # Create network ----------------------------------------------------------
   edg <- df_plot
   edg$width = edg$cooc
@@ -439,7 +452,8 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
 
   g <- igraph::graph_from_data_frame(edg, vertices = vert,
                                      directed = FALSE)
-
+  # node_centrality <- sort(igraph::degree(g, mode="all"))
+  # write.csv(data.frame(construct = names(node_centrality), centrality_degree = node_centrality), "node_centrality.csv", row.names = FALSE)
   # edge thickness
   E(g)$width <- scales::rescale(sqrt(E(g)$width), to = c(.5, 8))
 
