@@ -505,7 +505,7 @@
     1, wrong 1, yield 1, young 1, zational 1'
   include: 'FALSE'
 '0':
-  label: prisoner's dilemmma
+  label: prisoner's dilemma
   words: prisoner 368, prison 2, axel 1, contender 1, dilemma 1, earley 1, er 1, lemon
     1, pseudoprisoners 1, rider 1, sentence 1, theprisoners 1
   include: yes
@@ -876,7 +876,7 @@
     1, multiplicity 1, phenotype 1
   include: no
 '78':
-  label: ingroup
+  label:  group identification
   words: ingroup 91, accumulative 2, grouponone 2, Ingroup 2, ingroupoutgroup 2, oneongroup
     2, oneonone 2, groupongroup 1, INGROUP 1, microlender 1, nequestionnaire 1, superordinate
     1
@@ -1013,7 +1013,7 @@
   words: shoot 140, case 12, link 9, week 7, step 3, prize 2, 2 1, month 1, shot 1
   include: no
 '104':
-  label: individual difference
+  label: individual differences
   words: personality 119, character 10, Personality 4, characteristic 2, property
     2, Big 1, Big - 1, borderline 1, Borderline 1, Character 1
   include: yes
@@ -1145,13 +1145,13 @@
 '130':
   label: decision
   words: decision 84, first 23, determination 2, division 1, rst 1
-  include: yes
+  include: no
 '131':
   label: decision
   words: decision 241, visual 8, Decision 4, decisionmaking 4, decisional 2, decisionmakers
     2, auditory 1, calculation 1, comparison 1, division 1, graphical 1, path 1, search
     1, tree 1
-  include: yes
+  include: no
 '132':
   label: strategy
   words: strategic 116, Pareto 8, Strategic 6, ante 5, managerial 3, myopic 3, profitable
@@ -1182,11 +1182,11 @@
   words: group 256, contrast 47, actor 7, effect 4, point 4, view 4, comparison 2
   include: yes
 '138':
-  label: incentive
+  label: incentives
   words: payoff 136, level 53, portfolio 1, utility 1, valuation 1
   include: yes
 '139':
-  label: incentive
+  label: incentives
   words: payoff 172, society 56, numb 20, profit 15, TFT 8, Numerous 5, life 4, list
     3, numerous 3, TfT 3, payment 2, Payoff 2, PAYOFF 2, come 1, consideration 1,
     demographics 1, dissipation 1, dozen 1, host 1, hundred 1, MFC 1, million 1, next
@@ -1245,7 +1245,7 @@
   label: decision
   words: decision 317, lie 2, allocation 1, contribution 1, discussion 1, influence
     1, judgement 1, opinion 1, proportion 1
-  include: yes
+  include: no
 '150':
   label: present
   words: present 136, highlight 2, Present 1
