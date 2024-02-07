@@ -76,7 +76,7 @@ list(
   )
   , tar_target(
     name = exmplrs,
-    command = yaml::read_yaml("exemplars_recoded.yaml"),
+    command = yaml::read_yaml("exemplars_recoded_DAN.txt"),
     cue = tar_cue(mode = "always")
   )
   , tar_target(

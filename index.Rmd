@@ -136,63 +136,35 @@ knitr::include_graphics(paste0(plot_graph_file, "_circle", fig_format))
 
 ## Interactive Graph
 
-```{r}
+```{r, eval = FALSE}
 library(plotly)
 p <- readRDS("network.rdata")
 p <- p + geom_text(data = p$layers[[3]]$data, aes(x = X1, y = X2, label = name))
-plotly::ggplotly(p)
+plotly::ggplotly(p, tooltip = "label")
 
 ```
 
 
-```{r eval = FALSE}
-select_cooc <- function(cooc, q = .95){
-
-  fit <- MASS::fitdistr(cooc, "negative binomial")
-  thres <- qnbinom(q, size=fit$estimate["size"], mu=fit$estimate["mu"])
-  return(cooc > thres)
-}
-include <- as.logical(sapply(exmplrs, `[[`, "include")[as.character(res_hdbscan$labels)])
-labels <- sapply(exmplrs, `[[`, "label")[as.character(res_hdbscan$labels)]
-dat <- data.frame(doc = as.integer(factor(df$doc_id)),
-                  construct = res_hdbscan$labels,
-                  include,
-                  labels)
-# Drop terms marked for exclusion
-dat <- dat[dat$include, -which(names(dat)=="include")]
-# Words only count once per document
-dat <- dat[!duplicated(dat), ]
-# Make coocurrence matrix
-V <- crossprod(table(dat[1:2]))
-diag(V) <- 0
-
-df_plot <- as.data.frame.table(V)
-labs <- sapply(exmplrs, `[[`, "label")[as.logical(sapply(exmplrs, `[[`, "include"))]
-levels(df_plot$construct) <- labs
-levels(df_plot$construct.1) <- labs
-names(df_plot) <- c("term1", "term2", "cooc")
-df_plot <- df_plot[as.vector(lower.tri(V)), ]
-
-# Drop some links?
-df_plot <- suppressWarnings(df_plot[select_cooc(df_plot$cooc), ])
-# Create network ----------------------------------------------------------
-cluster_freq <- read.csv("cluster_freq.csv", stringsAsFactors = FALSE)
-edg <- df_plot
-names(edg) <- c("source", "target", "width")
-
-vert <- data.frame(name = as.character(unique(unlist(edg[1:2]))))
-vert$size <- cluster_freq$Frequency[match(vert$name, cluster_freq$Construct)]
-vert$size <- scales::rescale(log(vert$size), c(4, 12))
-library(igraph)
+```{r eval = TRUE, out.width="100%"}
+# From ggplot
 library(networkD3)
-g <- graph_from_data_frame(edg, vertices = vert, directed = FALSE)
+p <- readRDS("network.rdata")
+nod <- p$layers[[3]]$data
+nod$name <- factor(nod$name)
+labs <- levels(nod$name)
+nod$idnum <- as.integer(nod$name)-1L
+nod$group <- "a"
+edg <- p$layers[[1]]$data
+edg$Source <- (as.integer(factor(edg$term1, levels = labs))-1L)
+edg$Target <- (as.integer(factor(edg$term2, levels = labs))-1L)
+edg$width <- scales::rescale(edg$width, to = c(1, 5))
+nod <- nod[order(nod$idnum), ]
+forceNetwork(Links = edg, Nodes = nod, Source = "Source", Target = "Target", NodeID = "name", zoom = TRUE, Group = "group", linkDistance = 200, 
+             Value = "width", linkWidth = JS("function(d) { return d.value; }"),
+             Nodesize = "size", radiusCalculation = JS("d.nodesize*1.5"),
+             opacityNoHover = 1, fontSize = 20)
 
-netd3 <- igraph_to_networkD3(g)
-lnk <- netd3$links
-nod <- netd3$nodes
-nod$group <- "group1"
 
-forceNetwork(Links = lnk, Nodes = nod, Source = "source", Target = "target", NodeID = "name", zoom = TRUE, Group = "group", linkDistance = 200)
 ```
 
 

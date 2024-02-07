@@ -508,7 +508,8 @@
   label: prisoner's dilemmma
   words: prisoner 368, prison 2, axel 1, contender 1, dilemma 1, earley 1, er 1, lemon
     1, pseudoprisoners 1, rider 1, sentence 1, theprisoners 1
-  include: nyes
+  include: yes
+'1':
   label: term
   words: term 114, hope 1
   include: no
