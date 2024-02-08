@@ -292,6 +292,43 @@ plot_graph <- function(df, exmplrs, res_hdbscan){
 
   # Drop some links?
   df_plot <- df_plot[suppressWarnings(select_cooc(df_plot$cooc)), ]
+
+
+# Plot as list ------------------------------------------------------------
+  df_tab <- df_plot
+  df_tab$term1 <- as.character(df_tab$term1)
+  df_tab$term2 <- as.character(df_tab$term2)
+  df_tab[c("term1", "term2")] <- do.call(rbind, apply(df_tab[c("term1", "term2")], 1, function(r){r[order(nchar(r), decreasing = T)]}, simplify = F))
+  maxchar <- sapply(df_tab[c("term1", "term2")], function(i){max(nchar(i))})+1L
+  df_tab$joint <- sapply(1:nrow(df_tab), function(i){
+    paste0(sprintf(paste0("%-", maxchar[1], "s"), df_tab$term1[i]), "<->",
+           sprintf(paste0("%", maxchar[2], "s"), df_tab$term2[i]))
+  })
+  df_tab$joint <- ordered(df_tab$joint, levels = df_tab$joint[order(df_tab$cooc, decreasing = F)])
+  df_tab <- df_tab[order(df_tab$cooc, decreasing = T), ]
+  df_tab <- df_tab[df_tab$cooc > 57, ]
+
+  p <- ggplot(df_tab, aes(y = joint, x = cooc)) +
+    geom_segment(aes(x = 0, xend = cooc,
+                     y = joint, yend = joint
+                     #, linetype = faded
+    ), colour = "grey50"
+    ) +
+    geom_vline(xintercept = 0, colour = "grey50", linetype = 1) + xlab("Co-occurrence frequency") +
+    geom_point(data = df_tab, colour = "black", fill = "black", shape = 21, size = 1.5) +
+    # scale_colour_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen"), guide = NULL)+
+    # scale_fill_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")) +
+    scale_x_sqrt(expand = c(0,0)) +
+    #scale_linetype_manual(values = c("TRUE" = 2, "FALSE" = 1), guide = NULL) +
+    theme_bw() + theme(panel.grid.major.x = element_blank(),
+                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank(),
+                       legend.position = c(.70,.125),
+                       legend.title = element_blank(),
+                       axis.text.y = element_text(hjust=0, vjust = 0, size = 6, family = "mono"))
+
+  ggsave("plot_cooc_freq.png", p, device = "png", width = 210, height = 400, units = "mm", dpi = 150)
+  ggsave("plot_cooc_freq.svg", p, device = "svg", width = 210, height = 400, units = "mm")
+
   # Create network ----------------------------------------------------------
   cluster_freq <- read.csv("cluster_freq.csv", stringsAsFactors = FALSE)
   edg <- df_plot

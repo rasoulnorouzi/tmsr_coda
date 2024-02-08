@@ -50,12 +50,12 @@ Reuse of the analysis code and secondary analysis of the data are encouraged.
 
 ## Data Cleaning
 
-The corpus consisted of XXX abstracts, retrieved from XXX.
-These were all available abstracts of papers included in the Cooperation Databank as of DATE.
+The original corpus consisted of 2195 abstracts of papers included in the Cooperation Databank as of DATE.
 We first removed missing abstracts, those shorter than 200 characters (approximately 30 words), those not formatted as plain text, and those not written in English.
 The remaining plain-text abstracts were further preprocessed by removing HTML tags, email addresses, control characters, ligatures, initials, punctuation, and numbers. 
 As we observed some concatenated sentences, we used the `wordninja` package to extract individual words from any string exceeding a length of 15 characters.
 Finally, we normalized spacing throughout the abstracts.
+After cleaning, we included words from 1880 abstracts.
 
 ## Vector Embedding
 
@@ -191,6 +191,14 @@ p <- ggplot(df_plot, aes(y = Construct, x = Frequency)) +
                        legend.title = element_blank(),
                        axis.text.y = element_text(hjust=0, vjust = 0, size = 6))
 p
+```
+
+## Co-occurrence as List
+
+This figure contains the same information as the network above, but as a list so it's easier to see what the most common co-occurrence connections are:
+
+```{r}
+knitr::include_graphics(paste0("plot_cooc_freq", fig_format))
 ```
 
 
