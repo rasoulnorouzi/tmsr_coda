@@ -5,7 +5,7 @@ from langdetect import detect
 import nltk
 from nltk.tokenize import sent_tokenize
 from langdetect import DetectorFactory
-DetectorFactory.seed = 42
+DetectorFactory.seed = 642
 
 # Download necessary packages from nltk for text processing
 nltk.download('punkt')
