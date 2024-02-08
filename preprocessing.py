@@ -4,6 +4,8 @@ import unicodedata
 from langdetect import detect
 import nltk
 from nltk.tokenize import sent_tokenize
+from langdetect import DetectorFactory
+DetectorFactory.seed = 42
 
 # Download necessary packages from nltk for text processing
 nltk.download('punkt')
