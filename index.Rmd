@@ -201,6 +201,13 @@ This figure contains the same information as the network above, but as a list so
 knitr::include_graphics(paste0("plot_cooc_freq", fig_format))
 ```
 
+## Co-occurrence as List without Cooperation
+
+This figure contains the same information as the list above, but all links involving cooperation have been dropped:
+
+```{r}
+knitr::include_graphics(paste0("plot_cooc_freq_nocoop", fig_format))
+```
 
 ## Construct Details
 

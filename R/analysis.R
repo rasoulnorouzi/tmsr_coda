@@ -259,172 +259,9 @@ add.vertex.shape("circle2", clip=igraph.shape.noclip,
 select_cooc <- function(cooc, p = .95){
   fit <- MASS::fitdistr(cooc, "negative binomial")
   thres <- qnbinom(p, size=fit$estimate["size"], mu=fit$estimate["mu"])
-  return(cooc > thres)
-}
-
-plot_graph <- function(df, exmplrs, res_hdbscan){
-
-  # Prep data
-  include <- as.logical(sapply(exmplrs, `[[`, "include")[as.character(res_hdbscan$labels)])
-  labels <- sapply(exmplrs, `[[`, "label")[as.character(res_hdbscan$labels)]
-  dat <- data.frame(doc = as.integer(factor(df$doc_id)),
-                    construct = res_hdbscan$labels,
-                    include,
-                    labels)
-  # Drop terms marked for exclusion
-  dat <- dat[dat$include, -which(names(dat)=="include")]
-  # Replace constructs with labels because some are merged
-  dat$construct <- factor(dat$labels)
-  labs <- levels(dat$construct)
-
-  # Words only count once per document
-  dat <- dat[!duplicated(dat), ]
-  # Make coocurrence matrix
-  V <- crossprod(table(dat[1:2]))
-  diag(V) <- 0
-
-  df_plot <- as.data.frame.table(V)
-
-  # levels(df_plot$construct) <- labs
-  # levels(df_plot$construct.1) <- labs
-  names(df_plot) <- c("term1", "term2", "cooc")
-  df_plot <- df_plot[as.vector(lower.tri(V)), ]
-
-  # Drop some links?
-  df_plot <- df_plot[suppressWarnings(select_cooc(df_plot$cooc)), ]
-
-
-# Plot as list ------------------------------------------------------------
-  df_tab <- df_plot
-  df_tab$term1 <- as.character(df_tab$term1)
-  df_tab$term2 <- as.character(df_tab$term2)
-  df_tab[c("term1", "term2")] <- do.call(rbind, apply(df_tab[c("term1", "term2")], 1, function(r){r[order(nchar(r), decreasing = T)]}, simplify = F))
-  maxchar <- sapply(df_tab[c("term1", "term2")], function(i){max(nchar(i))})+1L
-  df_tab$joint <- sapply(1:nrow(df_tab), function(i){
-    paste0(sprintf(paste0("%-", maxchar[1], "s"), df_tab$term1[i]), "<->",
-           sprintf(paste0("%", maxchar[2], "s"), df_tab$term2[i]))
-  })
-  df_tab$joint <- ordered(df_tab$joint, levels = df_tab$joint[order(df_tab$cooc, decreasing = F)])
-  df_tab <- df_tab[order(df_tab$cooc, decreasing = T), ]
-  df_tab <- df_tab[df_tab$cooc > 57, ]
-
-  p <- ggplot(df_tab, aes(y = joint, x = cooc)) +
-    geom_segment(aes(x = 0, xend = cooc,
-                     y = joint, yend = joint
-                     #, linetype = faded
-    ), colour = "grey50"
-    ) +
-    geom_vline(xintercept = 0, colour = "grey50", linetype = 1) + xlab("Co-occurrence frequency") +
-    geom_point(data = df_tab, colour = "black", fill = "black", shape = 21, size = 1.5) +
-    # scale_colour_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen"), guide = NULL)+
-    # scale_fill_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")) +
-    scale_x_sqrt(expand = c(0,0)) +
-    #scale_linetype_manual(values = c("TRUE" = 2, "FALSE" = 1), guide = NULL) +
-    theme_bw() + theme(panel.grid.major.x = element_blank(),
-                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank(),
-                       legend.position = c(.70,.125),
-                       legend.title = element_blank(),
-                       axis.text.y = element_text(hjust=0, vjust = 0, size = 6, family = "mono"))
-
-  ggsave("plot_cooc_freq.png", p, device = "png", width = 210, height = 400, units = "mm", dpi = 150)
-  ggsave("plot_cooc_freq.svg", p, device = "svg", width = 210, height = 400, units = "mm")
-
-  # Create network ----------------------------------------------------------
-  cluster_freq <- read.csv("cluster_freq.csv", stringsAsFactors = FALSE)
-  edg <- df_plot
-  edg$width = edg$cooc
-
-  vert <- data.frame(name = as.character(unique(c(edg$term1, edg$term2))))
-  vert$label <- pretty_words(vert$name)
-  vert$size <- cluster_freq$Frequency[match(vert$name, cluster_freq$Construct)]
-
-  #categ <- read.csv("study1_categorization.csv", stringsAsFactors = FALSE)
-  # if(any(!vert$name %in% categ$name)){
-  #   write.table(vert$name[!vert$name %in% categ$name], "clipboard", sep = "\n", row.names = FALSE, col.names= FALSE)
-  #   stop("Please re-categorize missing vertices.")
-  # }
-  # vert$Category <- categ$category[match(vert$name, categ$name)]
-  # vert$faded <- vert$name %in% baseline
-
-  #cat_cols <- c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "olivedrab2")
-  #vert$color <- cat_cols[vert$Category]
-  # vert$frame.color <- cat_cols[vert$Category]
-  # vert$color[vert$faded] <- "#FFFFFF"
-
-  vert$size <- scales::rescale(log(vert$size), c(4, 12))
-  library(igraph)
-  g <- graph_from_data_frame(edg, vertices = vert,
-                             directed = FALSE)
-
-  # edge thickness
-  E(g)$width <- scales::rescale(sqrt(E(g)$width), to = c(.5, 8))
-
-
-  #dysreg_vertex = which(names(V(g)) == "dysregulation")
-
-  edge.start <- ends(g, es=E(g), names = FALSE)[,1]
-  edge.end <- ends(g, es=E(g), names = FALSE)[,2]
-  #E(g)$lty <- c(1, 5)[(!(edge.start == dysreg_vertex|edge.end == dysreg_vertex))+1]
-
-  # Layout
-  set.seed(3) #4
-  l1 <- l <- layout_with_fr(g)
-  l1[,1] <- -1*l1[,1]
-  set.seed(64)
-  shifter <- function(x, n = 1) {
-    if (n == 0) x else c(tail(x, -n), head(x, n))
-  }
-  l2 <- layout_in_circle(g, order = shifter(V(g), -3))
-
-  node_font <- 3
-  # Save files
-  svg("network.svg", width = 7, height=7, pointsize = 2)
-  plot(g, edge.curved = 0, layout=l1,
-       vertex.label.family = "sans",
-       vertex.label.cex = node_font,
-       vertex.shape = "circle2",
-       #vertex.frame.color = 'gray40',
-       vertex.label.color = 'black',      # Color of node names
-       vertex.label.font = 1,         # Font of node names
-       vertex.frame.width = 2
-  )
-  dev.off()
-  png("network.png", width = 2400, height=2400, pointsize = 12)
-  plot(g, edge.curved = 0, layout=l1,
-       vertex.label.family = "sans",
-       vertex.label.cex = node_font,
-       vertex.shape = "circle2",
-       #vertex.frame.color = 'gray40',
-       vertex.label.color = 'black',      # Color of node names
-       vertex.label.font = 1,         # Font of node names
-       vertex.frame.width = 2
-  )
-  dev.off()
-
-  # Layout circle
-  svg("network_circle.svg", width = 7, height=7, pointsize = 4)
-  plot(g, edge.curved = 0, layout=l2,
-       vertex.label.family = "sans",
-       vertex.label.cex = node_font,
-       vertex.shape = "circle2",
-       #vertex.frame.color = 'gray40',
-       vertex.label.color = 'black',      # Color of node names
-       vertex.label.font = 1,         # Font of node names
-       vertex.frame.width = 2
-  )
-  dev.off()
-  png("network_circle.png", width = 2400, height=2400, pointsize = 12)
-  plot(g, edge.curved = 0, layout=l2,
-       vertex.label.family = "sans",
-       vertex.label.cex = node_font,
-       vertex.shape = "circle2",
-       #vertex.frame.color = 'gray40',
-       vertex.label.color = 'black',      # Color of node names
-       vertex.label.font = 1,         # Font of node names
-       vertex.frame.width = 2
-  )
-  dev.off()
-  return("network")
+  out <- cooc > thres
+  attr(out, "thres") <- thres
+  return(out)
 }
 
 
@@ -471,11 +308,73 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   df_plot <- df_plot[as.vector(lower.tri(V)), ]
 
   # Drop some links?
-  if(!is.null(prune)) df_plot <- df_plot[suppressWarnings(select_cooc(df_plot$cooc, p = prune)), ]
+  if(!is.null(prune)){
+    select_links <- suppressWarnings(select_cooc(df_plot$cooc, p = prune))
+    writeLines(paste("Cooccurrence graph threshold: ", attr(select_links, "thres")), "coocurrence_threshold.txt")
+    df_plot <- df_plot[select_links, ]
+  }
 
   # Calculate centrality
   node_centrality <- sort(sapply(levels(df_plot$term1), function(l){ sum(df_plot$cooc[df_plot$term1 == l | df_plot$term2 == l]) })) #sort(igraph::degree(g_centr, mode="all"))
   write.csv(data.frame(construct = names(node_centrality), centrality_degree = node_centrality), "node_centrality.csv", row.names = FALSE)
+
+  # Plot as list ------------------------------------------------------------
+  df_tab <- df_plot
+  df_tab$term1 <- as.character(df_tab$term1)
+  df_tab$term2 <- as.character(df_tab$term2)
+  df_tab[c("term1", "term2")] <- do.call(rbind, apply(df_tab[c("term1", "term2")], 1, function(r){r[order(nchar(r), decreasing = T)]}, simplify = F))
+  maxchar <- sapply(df_tab[c("term1", "term2")], function(i){max(nchar(i))})+1L
+  df_tab$joint <- sapply(1:nrow(df_tab), function(i){
+    paste0(sprintf(paste0("%-", maxchar[1], "s"), df_tab$term1[i]), "<->",
+           sprintf(paste0("%", maxchar[2], "s"), df_tab$term2[i]))
+  })
+  df_tab$joint <- ordered(df_tab$joint, levels = df_tab$joint[order(df_tab$cooc, decreasing = F)])
+  df_tab <- df_tab[order(df_tab$cooc, decreasing = T), ]
+  df_tab <- df_tab[df_tab$cooc > attr(select_links, "thres"), ]
+
+  p <- ggplot(df_tab, aes(y = joint, x = cooc)) +
+    geom_segment(aes(x = 0, xend = cooc,
+                     y = joint, yend = joint
+                     #, linetype = faded
+    ), colour = "grey50"
+    ) +
+    geom_vline(xintercept = 0, colour = "grey50", linetype = 1) + xlab("Co-occurrence frequency") +
+    geom_point(data = df_tab, colour = "black", fill = "black", shape = 21, size = 1.5) +
+    # scale_colour_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen"), guide = NULL)+
+    # scale_fill_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")) +
+    scale_x_sqrt(expand = c(0,0)) +
+    #scale_linetype_manual(values = c("TRUE" = 2, "FALSE" = 1), guide = NULL) +
+    theme_bw() + theme(panel.grid.major.x = element_blank(),
+                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank(),
+                       legend.position = c(.70,.125),
+                       legend.title = element_blank(),
+                       axis.text.y = element_text(hjust=0, vjust = 0, size = 6, family = "mono"))
+
+  ggsave("plot_cooc_freq.png", p, device = "png", width = 210, height = 400, units = "mm", dpi = 150)
+  ggsave("plot_cooc_freq.svg", p, device = "svg", width = 210, height = 400, units = "mm")
+
+  # Without cooperation
+  df_tab <- df_tab[!(df_tab$term1 == "cooperation"| df_tab$term2 == "cooperation"), ]
+  p <- ggplot(df_tab, aes(y = joint, x = cooc)) +
+    geom_segment(aes(x = 0, xend = cooc,
+                     y = joint, yend = joint
+                     #, linetype = faded
+    ), colour = "grey50"
+    ) +
+    geom_vline(xintercept = 0, colour = "grey50", linetype = 1) + xlab("Co-occurrence frequency") +
+    geom_point(data = df_tab, colour = "black", fill = "black", shape = 21, size = 1.5) +
+    # scale_colour_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen"), guide = NULL)+
+    # scale_fill_manual(values = c(Outcome = "gray50", Indicator = "tomato", Cause = "gold", Protective = "forestgreen")) +
+    scale_x_sqrt(expand = c(0,0)) +
+    #scale_linetype_manual(values = c("TRUE" = 2, "FALSE" = 1), guide = NULL) +
+    theme_bw() + theme(panel.grid.major.x = element_blank(),
+                       panel.grid.minor.x = element_blank(), axis.title.y = element_blank(),
+                       legend.position = c(.70,.125),
+                       legend.title = element_blank(),
+                       axis.text.y = element_text(hjust=0, vjust = 0, size = 6, family = "mono"))
+
+  ggsave("plot_cooc_freq_nocoop.png", p, device = "png", width = 210, height = 400, units = "mm", dpi = 150)
+  ggsave("plot_cooc_freq_nocoop.svg", p, device = "svg", width = 210, height = 400, units = "mm")
 
   # Create network ----------------------------------------------------------
   edg <- df_plot
