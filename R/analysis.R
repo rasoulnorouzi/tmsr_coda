@@ -313,7 +313,7 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
     writeLines(paste("Cooccurrence graph threshold: ", attr(select_links, "thres")), "coocurrence_threshold.txt")
     df_plot <- df_plot[select_links, ]
   }
-
+  write.csv(df_plot, "coocurrences.csv", row.names = FALSE)
   # Calculate centrality
   node_centrality <- sort(sapply(levels(df_plot$term1), function(l){ sum(df_plot$cooc[df_plot$term1 == l | df_plot$term2 == l]) })) #sort(igraph::degree(g_centr, mode="all"))
   write.csv(data.frame(construct = names(node_centrality), centrality_degree = node_centrality), "node_centrality.csv", row.names = FALSE)
@@ -377,6 +377,15 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   ggsave("plot_cooc_freq_nocoop.svg", p, device = "svg", width = 210, height = 400, units = "mm")
 
   # Create network ----------------------------------------------------------
+  sq<-function(x){
+    x^2
+  }
+  #inverse square function (square root)
+  isq<-function(x){
+    print(paste("isq",x))  #debug statement
+    x<-ifelse(x<0, 0, x)
+    sqrt(x)
+  }
   edg <- df_plot
   edg$width = edg$cooc
 
@@ -384,7 +393,7 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   vert$size <- cluster_freq$frequency[match(vert$name, cluster_freq$construct)]
 
 
-  vert$size <- scales::rescale(log(vert$size), c(4, 12))
+  vert$size <- scales::rescale(vert$size^2, c(3, 25))
 
   g <- igraph::graph_from_data_frame(edg, vertices = vert,
                                      directed = FALSE)
@@ -398,7 +407,10 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
 
   # Layout
   set.seed(3) #4
-  lo <- layout_with_fr(g)
+  wts <- rep(1, length(E(g)$width))
+  wts[edg$term1 == "cooperation" | edg$term2 == "cooperation"] <- 10
+  lo <- layout_with_fr(g, weights = wts)
+
   vert <- data.frame(lo, vert)
   vert$fill <- ordered(vert$size)
   edg$width <- scales::rescale(edg$width, to = c(.5, 2))
@@ -410,15 +422,20 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
 
   p <- ggplot(data = NULL) +
     # Edges
-    geom_segment(data = edg, aes(x = xstart, y = ystart, xend = xend, yend = yend, linewidth = width))+
+    geom_segment(data = edg, aes(x = xstart, y = ystart, xend = xend, yend = yend, linewidth = width, alpha = width))+
     geom_point(data = vert, aes(x = X1, y = X2, size = size, fill = size), colour="black",pch=21, alpha = 1) +
     scale_fill_gradient(high = "#FF0000", low = "#FFFF00") +
     ggrepel::geom_label_repel(data = vert, aes(x = X1, y = X2, label = name), max.overlaps = 25) +
 
     theme_void() +
-    scale_linewidth(range = c(1, 3)) +
+    scale_linewidth(range = c(.5, 3)) +
+    scale_alpha(range = c(.2, 1))+
+    scale_size(range = c(2,15), trans = scales::trans_new("sq", sq, isq))+
     theme(legend.position = "none")
-  ggsave("network.svg", p, device = "svg", width = 7, height = 7, units = "in")
+
+  p
+  #ggsave("network.eps", p, device = "eps", width = 210, height = 210, units = "mm")
+  ggsave("network.svg", p, device = "svg", width = 210, height = 210, units = "mm")
   ggsave("network.png", p, device = "png", width = 7, height = 7, units = "in")
   saveRDS(p, "network.RData")
   set.seed(64)
