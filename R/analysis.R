@@ -316,7 +316,12 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   write.csv(df_plot, "coocurrences.csv", row.names = FALSE)
   # Calculate centrality
   node_centrality <- sort(sapply(levels(df_plot$term1), function(l){ sum(df_plot$cooc[df_plot$term1 == l | df_plot$term2 == l]) })) #sort(igraph::degree(g_centr, mode="all"))
-  write.csv(data.frame(construct = names(node_centrality), centrality_degree = node_centrality), "node_centrality.csv", row.names = FALSE)
+  df_nodecentral <- data.frame(construct = names(node_centrality),
+                               frequency = cluster_freq$frequency[match(names(node_centrality), cluster_freq$construct)],
+                               centrality_degree = node_centrality
+                               )
+
+  write.csv(df_nodecentral, "node_centrality.csv", row.names = FALSE)
 
   # Plot as list ------------------------------------------------------------
   df_tab <- df_plot
