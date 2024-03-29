@@ -16,3 +16,4 @@ embeddings.rdata
 !coocurrences.csv
 !cluster_freq.csv
 !node_centrality.csv
+!cooc_no_coop.csv

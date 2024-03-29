@@ -406,12 +406,11 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   edge.end <- ends(g, es=E(g), names = FALSE)[,2]
 
   # Layout
-  set.seed(3) #4
+  set.seed(1) #4
   wts <- rep(1, length(E(g)$width))
   wts[edg$term1 == "cooperation" | edg$term2 == "cooperation"] <- 10
   lo <- layout_with_fr(g, weights = wts)
-
-  vert <- data.frame(lo, vert)
+  vert <- data.frame(lo, vert[, c("name", "size")])
   vert$fill <- ordered(vert$size)
   edg$width <- scales::rescale(edg$width, to = c(.5, 2))
   df_from <- vert[edge.start, c("X1", "X2")]

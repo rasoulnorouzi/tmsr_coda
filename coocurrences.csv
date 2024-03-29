@@ -1,6 +1,5 @@
 "term1","term2","cooc"
 "cooperation","altruism",193
-"group","altruism",96
 "incentives","altruism",141
 "cooperation","cognition",102
 "cooperation","communication",148
@@ -9,31 +8,28 @@
 "incentives","competitive",180
 "strategy","competitive",106
 "cooperation","conflict",154
-"group","conflict",93
 "incentives","conflict",111
 "culture","cooperation",271
-"efficient","cooperation",108
+"efficency","cooperation",223
 "emotion","cooperation",116
 "emotion valence","cooperation",103
 "environmental","cooperation",113
 "equality","cooperation",101
-"equilibrium","cooperation",94
 "expectations","cooperation",147
 "fairness","cooperation",139
 "framing","cooperation",131
 "game duration","cooperation",168
 "gender","cooperation",266
 "group","cooperation",741
+"group identification","cooperation",112
 "harvest","cooperation",107
 "heterogeneous","cooperation",204
 "incentives","cooperation",912
-"individual differences","cooperation",99
 "information","cooperation",246
 "leadership","cooperation",132
-"motivation","cooperation",271
+"motivation","cooperation",328
 "norm","cooperation",188
 "partner type","cooperation",121
-"perspective","cooperation",97
 "power","cooperation",114
 "preference","cooperation",140
 "prisoner's dilemma","cooperation",326
@@ -43,7 +39,6 @@
 "resource dilemma","cooperation",106
 "Reward","cooperation",132
 "rule","cooperation",128
-"sequentiality","cooperation",95
 "social value orientation","cooperation",127
 "strategy","cooperation",471
 "structure","cooperation",116
@@ -51,6 +46,8 @@
 "trust","cooperation",143
 "group","culture",160
 "incentives","culture",163
+"group","efficency",138
+"incentives","efficency",160
 "incentives","game duration",113
 "group","gender",147
 "incentives","gender",168
@@ -58,8 +55,7 @@
 "heterogeneous","group",130
 "incentives","group",506
 "information","group",130
-"leadership","group",97
-"motivation","group",138
+"motivation","group",169
 "norm","group",108
 "prisoner's dilemma","group",139
 "public goods dilemma","group",142
@@ -69,17 +65,15 @@
 "threat","group",101
 "incentives","heterogeneous",123
 "information","incentives",154
-"motivation","incentives",191
+"motivation","incentives",227
 "norm","incentives",130
 "prisoner's dilemma","incentives",236
 "public goods dilemma","incentives",159
 "punishment","incentives",294
 "reciprocity","incentives",109
 "Reward","incentives",105
-"rule","incentives",94
 "strategy","incentives",343
 "threat","incentives",119
-"strategy","motivation",112
+"strategy","motivation",130
 "strategy","prisoner's dilemma",142
-"punishment","public goods dilemma",96
 "strategy","punishment",134

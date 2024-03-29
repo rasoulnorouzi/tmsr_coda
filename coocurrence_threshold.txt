@@ -1,1 +1,1 @@
-Cooccurrence graph threshold:  92
+Cooccurrence graph threshold:  100
