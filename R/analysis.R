@@ -355,6 +355,12 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
 
   # Without cooperation
   df_tab <- df_tab[!(df_tab$term1 == "cooperation"| df_tab$term2 == "cooperation"), ]
+  df_nocoop <- do.call(rbind, lapply(1:nrow(df_tab), function(i){
+    constructs <- df_tab[i, c(1:2)]
+    data.frame(constructs[order(node_centrality[unlist(constructs)], decreasing = TRUE)], cooc = df_tab$cooc[i])
+  }))
+  names(df_nocoop) <- c("Central construct", "Peripheral construct", "Co-occurrence")
+  write.csv(df_nocoop, "cooc_no_coop.csv", row.names = FALSE)
   p <- ggplot(df_tab, aes(y = joint, x = cooc)) +
     geom_segment(aes(x = 0, xend = cooc,
                      y = joint, yend = joint
