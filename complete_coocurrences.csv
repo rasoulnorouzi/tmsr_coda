@@ -1,0 +1,2851 @@
+"term1","term2","cooc"
+"age","ability",11
+"altruism","ability",17
+"anonymity","ability",10
+"central nervous system","ability",13
+"charitable","ability",2
+"chicken game","ability",3
+"cognition","ability",33
+"commitment","ability",6
+"communication","ability",7
+"competitive","ability",18
+"compliance","ability",6
+"conflict","ability",9
+"cooperation","ability",76
+"coordination","ability",3
+"culture","ability",16
+"dyad","ability",3
+"efficiency","ability",15
+"emotion","ability",10
+"emotion valence","ability",3
+"endowment","ability",0
+"environmental","ability",3
+"equality","ability",4
+"equilibrium","ability",4
+"evolution","ability",7
+"expectations","ability",12
+"experience","ability",3
+"fairness","ability",7
+"favoritism","ability",3
+"feedback","ability",0
+"framing","ability",6
+"game duration","ability",10
+"gender","ability",16
+"goal","ability",10
+"group","ability",40
+"group identification","ability",11
+"guilt","ability",3
+"harvest","ability",9
+"heterogeneous","ability",7
+"incentives","ability",47
+"individual differences","ability",11
+"information","ability",17
+"interdependence","ability",2
+"intergroup","ability",8
+"intuition","ability",9
+"knowledge","ability",6
+"leadership","ability",4
+"learning","ability",4
+"moral","ability",16
+"motivation","ability",26
+"norm","ability",5
+"partner type","ability",12
+"perception","ability",13
+"perspective","ability",9
+"power","ability",4
+"preference","ability",12
+"prisoner's dilemma","ability",21
+"promise","ability",1
+"psychopathology","ability",6
+"public goods dilemma","ability",15
+"punishment","ability",20
+"reciprocity","ability",9
+"reputation","ability",4
+"resource dilemma","ability",3
+"reward","ability",5
+"risk","ability",4
+"rule","ability",8
+"sequentiality","ability",3
+"social value orientation","ability",12
+"socio-economic status","ability",6
+"strategy","ability",42
+"structure","ability",11
+"threat","ability",12
+"time pressure","ability",7
+"trust","ability",5
+"uncertainty","ability",1
+"altruism","age",16
+"anonymity","age",1
+"central nervous system","age",6
+"charitable","age",2
+"chicken game","age",3
+"cognition","age",10
+"commitment","age",2
+"communication","age",11
+"competitive","age",27
+"compliance","age",5
+"conflict","age",6
+"cooperation","age",84
+"coordination","age",2
+"culture","age",26
+"dyad","age",13
+"efficiency","age",15
+"emotion","age",5
+"emotion valence","age",6
+"endowment","age",5
+"environmental","age",4
+"equality","age",8
+"equilibrium","age",1
+"evolution","age",6
+"expectations","age",8
+"experience","age",3
+"fairness","age",8
+"favoritism","age",2
+"feedback","age",4
+"framing","age",5
+"game duration","age",15
+"gender","age",39
+"goal","age",9
+"group","age",55
+"group identification","age",7
+"guilt","age",2
+"harvest","age",5
+"heterogeneous","age",13
+"incentives","age",52
+"individual differences","age",10
+"information","age",11
+"interdependence","age",2
+"intergroup","age",4
+"intuition","age",1
+"knowledge","age",6
+"leadership","age",7
+"learning","age",1
+"moral","age",4
+"motivation","age",26
+"norm","age",4
+"partner type","age",13
+"perception","age",3
+"perspective","age",11
+"power","age",10
+"preference","age",12
+"prisoner's dilemma","age",24
+"promise","age",3
+"psychopathology","age",11
+"public goods dilemma","age",16
+"punishment","age",17
+"reciprocity","age",11
+"reputation","age",1
+"resource dilemma","age",4
+"reward","age",6
+"risk","age",4
+"rule","age",5
+"sequentiality","age",7
+"social value orientation","age",9
+"socio-economic status","age",13
+"strategy","age",32
+"structure","age",9
+"threat","age",12
+"time pressure","age",3
+"trust","age",7
+"uncertainty","age",0
+"anonymity","altruism",10
+"central nervous system","altruism",19
+"charitable","altruism",9
+"chicken game","altruism",2
+"cognition","altruism",17
+"commitment","altruism",12
+"communication","altruism",19
+"competitive","altruism",51
+"compliance","altruism",8
+"conflict","altruism",28
+"cooperation","altruism",193
+"coordination","altruism",5
+"culture","altruism",47
+"dyad","altruism",10
+"efficiency","altruism",19
+"emotion","altruism",20
+"emotion valence","altruism",16
+"endowment","altruism",7
+"environmental","altruism",18
+"equality","altruism",7
+"equilibrium","altruism",10
+"evolution","altruism",20
+"expectations","altruism",24
+"experience","altruism",1
+"fairness","altruism",23
+"favoritism","altruism",9
+"feedback","altruism",7
+"framing","altruism",9
+"game duration","altruism",14
+"gender","altruism",49
+"goal","altruism",15
+"group","altruism",96
+"group identification","altruism",16
+"guilt","altruism",11
+"harvest","altruism",8
+"heterogeneous","altruism",29
+"incentives","altruism",141
+"individual differences","altruism",23
+"information","altruism",23
+"interdependence","altruism",6
+"intergroup","altruism",18
+"intuition","altruism",7
+"knowledge","altruism",16
+"leadership","altruism",13
+"learning","altruism",6
+"moral","altruism",16
+"motivation","altruism",63
+"norm","altruism",25
+"partner type","altruism",23
+"perception","altruism",8
+"perspective","altruism",17
+"power","altruism",11
+"preference","altruism",25
+"prisoner's dilemma","altruism",44
+"promise","altruism",6
+"psychopathology","altruism",4
+"public goods dilemma","altruism",32
+"punishment","altruism",67
+"reciprocity","altruism",33
+"reputation","altruism",12
+"resource dilemma","altruism",15
+"reward","altruism",22
+"risk","altruism",5
+"rule","altruism",16
+"sequentiality","altruism",6
+"social value orientation","altruism",37
+"socio-economic status","altruism",7
+"strategy","altruism",71
+"structure","altruism",17
+"threat","altruism",22
+"time pressure","altruism",13
+"trust","altruism",21
+"uncertainty","altruism",6
+"central nervous system","anonymity",4
+"charitable","anonymity",2
+"chicken game","anonymity",4
+"cognition","anonymity",7
+"commitment","anonymity",7
+"communication","anonymity",10
+"competitive","anonymity",19
+"compliance","anonymity",0
+"conflict","anonymity",9
+"cooperation","anonymity",78
+"coordination","anonymity",5
+"culture","anonymity",11
+"dyad","anonymity",2
+"efficiency","anonymity",19
+"emotion","anonymity",10
+"emotion valence","anonymity",7
+"endowment","anonymity",1
+"environmental","anonymity",7
+"equality","anonymity",2
+"equilibrium","anonymity",7
+"evolution","anonymity",10
+"expectations","anonymity",14
+"experience","anonymity",5
+"fairness","anonymity",13
+"favoritism","anonymity",1
+"feedback","anonymity",2
+"framing","anonymity",6
+"game duration","anonymity",8
+"gender","anonymity",13
+"goal","anonymity",8
+"group","anonymity",46
+"group identification","anonymity",8
+"guilt","anonymity",3
+"harvest","anonymity",7
+"heterogeneous","anonymity",9
+"incentives","anonymity",60
+"individual differences","anonymity",8
+"information","anonymity",11
+"interdependence","anonymity",2
+"intergroup","anonymity",6
+"intuition","anonymity",3
+"knowledge","anonymity",4
+"leadership","anonymity",3
+"learning","anonymity",5
+"moral","anonymity",1
+"motivation","anonymity",16
+"norm","anonymity",8
+"partner type","anonymity",3
+"perception","anonymity",6
+"perspective","anonymity",5
+"power","anonymity",10
+"preference","anonymity",10
+"prisoner's dilemma","anonymity",19
+"promise","anonymity",2
+"psychopathology","anonymity",0
+"public goods dilemma","anonymity",14
+"punishment","anonymity",22
+"reciprocity","anonymity",11
+"reputation","anonymity",9
+"resource dilemma","anonymity",5
+"reward","anonymity",9
+"risk","anonymity",2
+"rule","anonymity",8
+"sequentiality","anonymity",5
+"social value orientation","anonymity",9
+"socio-economic status","anonymity",1
+"strategy","anonymity",33
+"structure","anonymity",9
+"threat","anonymity",10
+"time pressure","anonymity",3
+"trust","anonymity",12
+"uncertainty","anonymity",5
+"charitable","central nervous system",3
+"chicken game","central nervous system",5
+"cognition","central nervous system",29
+"commitment","central nervous system",3
+"communication","central nervous system",5
+"competitive","central nervous system",8
+"compliance","central nervous system",3
+"conflict","central nervous system",8
+"cooperation","central nervous system",60
+"coordination","central nervous system",4
+"culture","central nervous system",16
+"dyad","central nervous system",3
+"efficiency","central nervous system",10
+"emotion","central nervous system",15
+"emotion valence","central nervous system",9
+"endowment","central nervous system",0
+"environmental","central nervous system",5
+"equality","central nervous system",1
+"equilibrium","central nervous system",4
+"evolution","central nervous system",7
+"expectations","central nervous system",4
+"experience","central nervous system",3
+"fairness","central nervous system",11
+"favoritism","central nervous system",2
+"feedback","central nervous system",4
+"framing","central nervous system",4
+"game duration","central nervous system",9
+"gender","central nervous system",19
+"goal","central nervous system",13
+"group","central nervous system",28
+"group identification","central nervous system",5
+"guilt","central nervous system",6
+"harvest","central nervous system",6
+"heterogeneous","central nervous system",7
+"incentives","central nervous system",37
+"individual differences","central nervous system",11
+"information","central nervous system",12
+"interdependence","central nervous system",0
+"intergroup","central nervous system",3
+"intuition","central nervous system",11
+"knowledge","central nervous system",13
+"leadership","central nervous system",9
+"learning","central nervous system",5
+"moral","central nervous system",7
+"motivation","central nervous system",22
+"norm","central nervous system",14
+"partner type","central nervous system",17
+"perception","central nervous system",3
+"perspective","central nervous system",6
+"power","central nervous system",2
+"preference","central nervous system",6
+"prisoner's dilemma","central nervous system",25
+"promise","central nervous system",2
+"psychopathology","central nervous system",9
+"public goods dilemma","central nervous system",7
+"punishment","central nervous system",19
+"reciprocity","central nervous system",6
+"reputation","central nervous system",2
+"resource dilemma","central nervous system",5
+"reward","central nervous system",13
+"risk","central nervous system",4
+"rule","central nervous system",8
+"sequentiality","central nervous system",2
+"social value orientation","central nervous system",12
+"socio-economic status","central nervous system",2
+"strategy","central nervous system",23
+"structure","central nervous system",10
+"threat","central nervous system",13
+"time pressure","central nervous system",5
+"trust","central nervous system",10
+"uncertainty","central nervous system",2
+"chicken game","charitable",2
+"cognition","charitable",1
+"commitment","charitable",7
+"communication","charitable",7
+"competitive","charitable",14
+"compliance","charitable",5
+"conflict","charitable",11
+"cooperation","charitable",70
+"coordination","charitable",3
+"culture","charitable",17
+"dyad","charitable",5
+"efficiency","charitable",12
+"emotion","charitable",6
+"emotion valence","charitable",3
+"endowment","charitable",5
+"environmental","charitable",6
+"equality","charitable",7
+"equilibrium","charitable",4
+"evolution","charitable",3
+"expectations","charitable",7
+"experience","charitable",2
+"fairness","charitable",6
+"favoritism","charitable",4
+"feedback","charitable",3
+"framing","charitable",8
+"game duration","charitable",8
+"gender","charitable",15
+"goal","charitable",4
+"group","charitable",36
+"group identification","charitable",5
+"guilt","charitable",5
+"harvest","charitable",10
+"heterogeneous","charitable",9
+"incentives","charitable",47
+"individual differences","charitable",4
+"information","charitable",12
+"interdependence","charitable",4
+"intergroup","charitable",0
+"intuition","charitable",1
+"knowledge","charitable",5
+"leadership","charitable",7
+"learning","charitable",1
+"moral","charitable",5
+"motivation","charitable",13
+"norm","charitable",10
+"partner type","charitable",3
+"perception","charitable",4
+"perspective","charitable",7
+"power","charitable",5
+"preference","charitable",7
+"prisoner's dilemma","charitable",9
+"promise","charitable",2
+"psychopathology","charitable",1
+"public goods dilemma","charitable",19
+"punishment","charitable",35
+"reciprocity","charitable",10
+"reputation","charitable",3
+"resource dilemma","charitable",2
+"reward","charitable",7
+"risk","charitable",3
+"rule","charitable",5
+"sequentiality","charitable",4
+"social value orientation","charitable",11
+"socio-economic status","charitable",3
+"strategy","charitable",19
+"structure","charitable",4
+"threat","charitable",10
+"time pressure","charitable",1
+"trust","charitable",9
+"uncertainty","charitable",1
+"cognition","chicken game",7
+"commitment","chicken game",1
+"communication","chicken game",4
+"competitive","chicken game",15
+"compliance","chicken game",2
+"conflict","chicken game",6
+"cooperation","chicken game",49
+"coordination","chicken game",3
+"culture","chicken game",9
+"dyad","chicken game",2
+"efficiency","chicken game",9
+"emotion","chicken game",2
+"emotion valence","chicken game",5
+"endowment","chicken game",1
+"environmental","chicken game",7
+"equality","chicken game",3
+"equilibrium","chicken game",4
+"evolution","chicken game",1
+"expectations","chicken game",3
+"experience","chicken game",7
+"fairness","chicken game",5
+"favoritism","chicken game",2
+"feedback","chicken game",3
+"framing","chicken game",10
+"game duration","chicken game",11
+"gender","chicken game",3
+"goal","chicken game",3
+"group","chicken game",26
+"group identification","chicken game",5
+"guilt","chicken game",3
+"harvest","chicken game",10
+"heterogeneous","chicken game",8
+"incentives","chicken game",39
+"individual differences","chicken game",5
+"information","chicken game",7
+"interdependence","chicken game",2
+"intergroup","chicken game",3
+"intuition","chicken game",2
+"knowledge","chicken game",2
+"leadership","chicken game",5
+"learning","chicken game",6
+"moral","chicken game",0
+"motivation","chicken game",16
+"norm","chicken game",6
+"partner type","chicken game",9
+"perception","chicken game",4
+"perspective","chicken game",1
+"power","chicken game",7
+"preference","chicken game",2
+"prisoner's dilemma","chicken game",19
+"promise","chicken game",0
+"psychopathology","chicken game",1
+"public goods dilemma","chicken game",10
+"punishment","chicken game",13
+"reciprocity","chicken game",8
+"reputation","chicken game",1
+"resource dilemma","chicken game",7
+"reward","chicken game",7
+"risk","chicken game",4
+"rule","chicken game",6
+"sequentiality","chicken game",4
+"social value orientation","chicken game",7
+"socio-economic status","chicken game",1
+"strategy","chicken game",31
+"structure","chicken game",8
+"threat","chicken game",12
+"time pressure","chicken game",0
+"trust","chicken game",9
+"uncertainty","chicken game",3
+"commitment","cognition",5
+"communication","cognition",11
+"competitive","cognition",31
+"compliance","cognition",4
+"conflict","cognition",12
+"cooperation","cognition",102
+"coordination","cognition",5
+"culture","cognition",22
+"dyad","cognition",4
+"efficiency","cognition",23
+"emotion","cognition",25
+"emotion valence","cognition",12
+"endowment","cognition",1
+"environmental","cognition",5
+"equality","cognition",4
+"equilibrium","cognition",4
+"evolution","cognition",10
+"expectations","cognition",16
+"experience","cognition",6
+"fairness","cognition",13
+"favoritism","cognition",4
+"feedback","cognition",3
+"framing","cognition",13
+"game duration","cognition",12
+"gender","cognition",21
+"goal","cognition",9
+"group","cognition",57
+"group identification","cognition",8
+"guilt","cognition",4
+"harvest","cognition",10
+"heterogeneous","cognition",14
+"incentives","cognition",68
+"individual differences","cognition",16
+"information","cognition",25
+"interdependence","cognition",1
+"intergroup","cognition",10
+"intuition","cognition",22
+"knowledge","cognition",9
+"leadership","cognition",12
+"learning","cognition",5
+"moral","cognition",11
+"motivation","cognition",32
+"norm","cognition",9
+"partner type","cognition",18
+"perception","cognition",6
+"perspective","cognition",8
+"power","cognition",9
+"preference","cognition",11
+"prisoner's dilemma","cognition",34
+"promise","cognition",1
+"psychopathology","cognition",10
+"public goods dilemma","cognition",9
+"punishment","cognition",28
+"reciprocity","cognition",15
+"reputation","cognition",2
+"resource dilemma","cognition",8
+"reward","cognition",12
+"risk","cognition",5
+"rule","cognition",11
+"sequentiality","cognition",10
+"social value orientation","cognition",12
+"socio-economic status","cognition",2
+"strategy","cognition",45
+"structure","cognition",21
+"threat","cognition",19
+"time pressure","cognition",12
+"trust","cognition",15
+"uncertainty","cognition",2
+"communication","commitment",27
+"competitive","commitment",23
+"compliance","commitment",9
+"conflict","commitment",12
+"cooperation","commitment",91
+"coordination","commitment",5
+"culture","commitment",18
+"dyad","commitment",6
+"efficiency","commitment",16
+"emotion","commitment",9
+"emotion valence","commitment",9
+"endowment","commitment",3
+"environmental","commitment",5
+"equality","commitment",6
+"equilibrium","commitment",7
+"evolution","commitment",4
+"expectations","commitment",11
+"experience","commitment",3
+"fairness","commitment",7
+"favoritism","commitment",7
+"feedback","commitment",4
+"framing","commitment",7
+"game duration","commitment",15
+"gender","commitment",24
+"goal","commitment",9
+"group","commitment",60
+"group identification","commitment",6
+"guilt","commitment",1
+"harvest","commitment",10
+"heterogeneous","commitment",2
+"incentives","commitment",55
+"individual differences","commitment",5
+"information","commitment",22
+"interdependence","commitment",6
+"intergroup","commitment",5
+"intuition","commitment",1
+"knowledge","commitment",4
+"leadership","commitment",13
+"learning","commitment",2
+"moral","commitment",2
+"motivation","commitment",15
+"norm","commitment",15
+"partner type","commitment",7
+"perception","commitment",5
+"perspective","commitment",7
+"power","commitment",12
+"preference","commitment",4
+"prisoner's dilemma","commitment",17
+"promise","commitment",12
+"psychopathology","commitment",3
+"public goods dilemma","commitment",23
+"punishment","commitment",37
+"reciprocity","commitment",9
+"reputation","commitment",3
+"resource dilemma","commitment",8
+"reward","commitment",6
+"risk","commitment",1
+"rule","commitment",8
+"sequentiality","commitment",8
+"social value orientation","commitment",7
+"socio-economic status","commitment",1
+"strategy","commitment",36
+"structure","commitment",4
+"threat","commitment",18
+"time pressure","commitment",3
+"trust","commitment",10
+"uncertainty","commitment",5
+"competitive","communication",29
+"compliance","communication",5
+"conflict","communication",21
+"cooperation","communication",148
+"coordination","communication",11
+"culture","communication",44
+"dyad","communication",16
+"efficiency","communication",27
+"emotion","communication",15
+"emotion valence","communication",11
+"endowment","communication",11
+"environmental","communication",13
+"equality","communication",10
+"equilibrium","communication",5
+"evolution","communication",6
+"expectations","communication",13
+"experience","communication",13
+"fairness","communication",7
+"favoritism","communication",6
+"feedback","communication",11
+"framing","communication",16
+"game duration","communication",22
+"gender","communication",24
+"goal","communication",12
+"group","communication",85
+"group identification","communication",9
+"guilt","communication",2
+"harvest","communication",12
+"heterogeneous","communication",15
+"incentives","communication",85
+"individual differences","communication",12
+"information","communication",34
+"interdependence","communication",6
+"intergroup","communication",12
+"intuition","communication",0
+"knowledge","communication",6
+"leadership","communication",23
+"learning","communication",3
+"moral","communication",2
+"motivation","communication",27
+"norm","communication",18
+"partner type","communication",5
+"perception","communication",13
+"perspective","communication",16
+"power","communication",12
+"preference","communication",3
+"prisoner's dilemma","communication",32
+"promise","communication",9
+"psychopathology","communication",3
+"public goods dilemma","communication",26
+"punishment","communication",42
+"reciprocity","communication",15
+"reputation","communication",5
+"resource dilemma","communication",17
+"reward","communication",12
+"risk","communication",2
+"rule","communication",17
+"sequentiality","communication",12
+"social value orientation","communication",12
+"socio-economic status","communication",6
+"strategy","communication",50
+"structure","communication",11
+"threat","communication",20
+"time pressure","communication",5
+"trust","communication",14
+"uncertainty","communication",3
+"compliance","competitive",23
+"conflict","competitive",49
+"cooperation","competitive",275
+"coordination","competitive",11
+"culture","competitive",42
+"dyad","competitive",26
+"efficiency","competitive",36
+"emotion","competitive",24
+"emotion valence","competitive",20
+"endowment","competitive",9
+"environmental","competitive",30
+"equality","competitive",22
+"equilibrium","competitive",9
+"evolution","competitive",21
+"expectations","competitive",28
+"experience","competitive",15
+"fairness","competitive",19
+"favoritism","competitive",14
+"feedback","competitive",16
+"framing","competitive",35
+"game duration","competitive",36
+"gender","competitive",72
+"goal","competitive",30
+"group","competitive",155
+"group identification","competitive",22
+"guilt","competitive",9
+"harvest","competitive",25
+"heterogeneous","competitive",42
+"incentives","competitive",180
+"individual differences","competitive",29
+"information","competitive",40
+"interdependence","competitive",14
+"intergroup","competitive",39
+"intuition","competitive",9
+"knowledge","competitive",15
+"leadership","competitive",23
+"learning","competitive",8
+"moral","competitive",12
+"motivation","competitive",86
+"norm","competitive",31
+"partner type","competitive",23
+"perception","competitive",28
+"perspective","competitive",24
+"power","competitive",30
+"preference","competitive",23
+"prisoner's dilemma","competitive",81
+"promise","competitive",7
+"psychopathology","competitive",2
+"public goods dilemma","competitive",25
+"punishment","competitive",64
+"reciprocity","competitive",43
+"reputation","competitive",8
+"resource dilemma","competitive",27
+"reward","competitive",25
+"risk","competitive",6
+"rule","competitive",30
+"sequentiality","competitive",19
+"social value orientation","competitive",20
+"socio-economic status","competitive",9
+"strategy","competitive",106
+"structure","competitive",24
+"threat","competitive",43
+"time pressure","competitive",16
+"trust","competitive",18
+"uncertainty","competitive",6
+"conflict","compliance",9
+"cooperation","compliance",64
+"coordination","compliance",5
+"culture","compliance",6
+"dyad","compliance",2
+"efficiency","compliance",9
+"emotion","compliance",3
+"emotion valence","compliance",7
+"endowment","compliance",1
+"environmental","compliance",8
+"equality","compliance",6
+"equilibrium","compliance",6
+"evolution","compliance",5
+"expectations","compliance",9
+"experience","compliance",3
+"fairness","compliance",5
+"favoritism","compliance",3
+"feedback","compliance",2
+"framing","compliance",7
+"game duration","compliance",11
+"gender","compliance",17
+"goal","compliance",2
+"group","compliance",27
+"group identification","compliance",6
+"guilt","compliance",0
+"harvest","compliance",10
+"heterogeneous","compliance",9
+"incentives","compliance",38
+"individual differences","compliance",5
+"information","compliance",10
+"interdependence","compliance",2
+"intergroup","compliance",3
+"intuition","compliance",3
+"knowledge","compliance",5
+"leadership","compliance",6
+"learning","compliance",1
+"moral","compliance",6
+"motivation","compliance",22
+"norm","compliance",16
+"partner type","compliance",5
+"perception","compliance",6
+"perspective","compliance",7
+"power","compliance",8
+"preference","compliance",5
+"prisoner's dilemma","compliance",16
+"promise","compliance",7
+"psychopathology","compliance",1
+"public goods dilemma","compliance",13
+"punishment","compliance",28
+"reciprocity","compliance",10
+"reputation","compliance",0
+"resource dilemma","compliance",6
+"reward","compliance",7
+"risk","compliance",1
+"rule","compliance",11
+"sequentiality","compliance",5
+"social value orientation","compliance",9
+"socio-economic status","compliance",1
+"strategy","compliance",26
+"structure","compliance",5
+"threat","compliance",13
+"time pressure","compliance",2
+"trust","compliance",3
+"uncertainty","compliance",2
+"cooperation","conflict",154
+"coordination","conflict",2
+"culture","conflict",14
+"dyad","conflict",11
+"efficiency","conflict",30
+"emotion","conflict",16
+"emotion valence","conflict",12
+"endowment","conflict",12
+"environmental","conflict",9
+"equality","conflict",12
+"equilibrium","conflict",6
+"evolution","conflict",15
+"expectations","conflict",17
+"experience","conflict",6
+"fairness","conflict",16
+"favoritism","conflict",5
+"feedback","conflict",6
+"framing","conflict",15
+"game duration","conflict",18
+"gender","conflict",33
+"goal","conflict",13
+"group","conflict",93
+"group identification","conflict",11
+"guilt","conflict",7
+"harvest","conflict",12
+"heterogeneous","conflict",22
+"incentives","conflict",111
+"individual differences","conflict",13
+"information","conflict",17
+"interdependence","conflict",9
+"intergroup","conflict",32
+"intuition","conflict",7
+"knowledge","conflict",6
+"leadership","conflict",11
+"learning","conflict",5
+"moral","conflict",8
+"motivation","conflict",53
+"norm","conflict",26
+"partner type","conflict",10
+"perception","conflict",14
+"perspective","conflict",11
+"power","conflict",17
+"preference","conflict",12
+"prisoner's dilemma","conflict",46
+"promise","conflict",7
+"psychopathology","conflict",4
+"public goods dilemma","conflict",13
+"punishment","conflict",60
+"reciprocity","conflict",26
+"reputation","conflict",2
+"resource dilemma","conflict",8
+"reward","conflict",16
+"risk","conflict",6
+"rule","conflict",20
+"sequentiality","conflict",10
+"social value orientation","conflict",11
+"socio-economic status","conflict",5
+"strategy","conflict",58
+"structure","conflict",22
+"threat","conflict",26
+"time pressure","conflict",12
+"trust","conflict",13
+"uncertainty","conflict",4
+"coordination","cooperation",55
+"culture","cooperation",271
+"dyad","cooperation",62
+"efficiency","cooperation",223
+"emotion","cooperation",116
+"emotion valence","cooperation",103
+"endowment","cooperation",77
+"environmental","cooperation",113
+"equality","cooperation",101
+"equilibrium","cooperation",94
+"evolution","cooperation",87
+"expectations","cooperation",147
+"experience","cooperation",63
+"fairness","cooperation",139
+"favoritism","cooperation",54
+"feedback","cooperation",51
+"framing","cooperation",131
+"game duration","cooperation",168
+"gender","cooperation",266
+"goal","cooperation",82
+"group","cooperation",741
+"group identification","cooperation",112
+"guilt","cooperation",41
+"harvest","cooperation",107
+"heterogeneous","cooperation",204
+"incentives","cooperation",912
+"individual differences","cooperation",99
+"information","cooperation",246
+"interdependence","cooperation",56
+"intergroup","cooperation",76
+"intuition","cooperation",44
+"knowledge","cooperation",65
+"leadership","cooperation",132
+"learning","cooperation",55
+"moral","cooperation",61
+"motivation","cooperation",328
+"norm","cooperation",188
+"partner type","cooperation",121
+"perception","cooperation",71
+"perspective","cooperation",97
+"power","cooperation",114
+"preference","cooperation",140
+"prisoner's dilemma","cooperation",326
+"promise","cooperation",47
+"psychopathology","cooperation",28
+"public goods dilemma","cooperation",273
+"punishment","cooperation",422
+"reciprocity","cooperation",181
+"reputation","cooperation",55
+"resource dilemma","cooperation",106
+"reward","cooperation",132
+"risk","cooperation",47
+"rule","cooperation",128
+"sequentiality","cooperation",95
+"social value orientation","cooperation",127
+"socio-economic status","cooperation",47
+"strategy","cooperation",471
+"structure","cooperation",116
+"threat","cooperation",174
+"time pressure","cooperation",55
+"trust","cooperation",143
+"uncertainty","cooperation",48
+"culture","coordination",13
+"dyad","coordination",3
+"efficiency","coordination",25
+"emotion","coordination",6
+"emotion valence","coordination",3
+"endowment","coordination",3
+"environmental","coordination",9
+"equality","coordination",10
+"equilibrium","coordination",15
+"evolution","coordination",5
+"expectations","coordination",6
+"experience","coordination",4
+"fairness","coordination",4
+"favoritism","coordination",2
+"feedback","coordination",4
+"framing","coordination",8
+"game duration","coordination",3
+"gender","coordination",9
+"goal","coordination",2
+"group","coordination",42
+"group identification","coordination",7
+"guilt","coordination",1
+"harvest","coordination",8
+"heterogeneous","coordination",9
+"incentives","coordination",47
+"individual differences","coordination",3
+"information","coordination",20
+"interdependence","coordination",5
+"intergroup","coordination",4
+"intuition","coordination",1
+"knowledge","coordination",6
+"leadership","coordination",2
+"learning","coordination",0
+"moral","coordination",2
+"motivation","coordination",12
+"norm","coordination",15
+"partner type","coordination",2
+"perception","coordination",1
+"perspective","coordination",5
+"power","coordination",5
+"preference","coordination",6
+"prisoner's dilemma","coordination",17
+"promise","coordination",2
+"psychopathology","coordination",0
+"public goods dilemma","coordination",9
+"punishment","coordination",19
+"reciprocity","coordination",5
+"reputation","coordination",0
+"resource dilemma","coordination",8
+"reward","coordination",8
+"risk","coordination",3
+"rule","coordination",11
+"sequentiality","coordination",7
+"social value orientation","coordination",4
+"socio-economic status","coordination",2
+"strategy","coordination",25
+"structure","coordination",3
+"threat","coordination",10
+"time pressure","coordination",5
+"trust","coordination",5
+"uncertainty","coordination",7
+"dyad","culture",12
+"efficiency","culture",33
+"emotion","culture",15
+"emotion valence","culture",10
+"endowment","culture",11
+"environmental","culture",50
+"equality","culture",19
+"equilibrium","culture",18
+"evolution","culture",20
+"expectations","culture",31
+"experience","culture",18
+"fairness","culture",20
+"favoritism","culture",16
+"feedback","culture",12
+"framing","culture",28
+"game duration","culture",28
+"gender","culture",73
+"goal","culture",12
+"group","culture",160
+"group identification","culture",31
+"guilt","culture",4
+"harvest","culture",25
+"heterogeneous","culture",38
+"incentives","culture",163
+"individual differences","culture",21
+"information","culture",48
+"interdependence","culture",14
+"intergroup","culture",17
+"intuition","culture",9
+"knowledge","culture",11
+"leadership","culture",25
+"learning","culture",5
+"moral","culture",12
+"motivation","culture",65
+"norm","culture",45
+"partner type","culture",29
+"perception","culture",11
+"perspective","culture",25
+"power","culture",13
+"preference","culture",35
+"prisoner's dilemma","culture",48
+"promise","culture",3
+"psychopathology","culture",5
+"public goods dilemma","culture",42
+"punishment","culture",72
+"reciprocity","culture",40
+"reputation","culture",10
+"resource dilemma","culture",28
+"reward","culture",10
+"risk","culture",11
+"rule","culture",25
+"sequentiality","culture",31
+"social value orientation","culture",21
+"socio-economic status","culture",13
+"strategy","culture",76
+"structure","culture",23
+"threat","culture",36
+"time pressure","culture",14
+"trust","culture",43
+"uncertainty","culture",9
+"efficiency","dyad",5
+"emotion","dyad",7
+"emotion valence","dyad",2
+"endowment","dyad",2
+"environmental","dyad",3
+"equality","dyad",3
+"equilibrium","dyad",1
+"evolution","dyad",2
+"expectations","dyad",6
+"experience","dyad",4
+"fairness","dyad",2
+"favoritism","dyad",4
+"feedback","dyad",4
+"framing","dyad",7
+"game duration","dyad",16
+"gender","dyad",15
+"goal","dyad",10
+"group","dyad",30
+"group identification","dyad",6
+"guilt","dyad",2
+"harvest","dyad",2
+"heterogeneous","dyad",9
+"incentives","dyad",40
+"individual differences","dyad",8
+"information","dyad",8
+"interdependence","dyad",6
+"intergroup","dyad",4
+"intuition","dyad",1
+"knowledge","dyad",3
+"leadership","dyad",6
+"learning","dyad",0
+"moral","dyad",6
+"motivation","dyad",21
+"norm","dyad",5
+"partner type","dyad",7
+"perception","dyad",5
+"perspective","dyad",9
+"power","dyad",7
+"preference","dyad",2
+"prisoner's dilemma","dyad",19
+"promise","dyad",5
+"psychopathology","dyad",2
+"public goods dilemma","dyad",3
+"punishment","dyad",11
+"reciprocity","dyad",7
+"reputation","dyad",2
+"resource dilemma","dyad",0
+"reward","dyad",9
+"risk","dyad",1
+"rule","dyad",3
+"sequentiality","dyad",6
+"social value orientation","dyad",5
+"socio-economic status","dyad",6
+"strategy","dyad",20
+"structure","dyad",4
+"threat","dyad",11
+"time pressure","dyad",3
+"trust","dyad",9
+"uncertainty","dyad",1
+"emotion","efficiency",20
+"emotion valence","efficiency",24
+"endowment","efficiency",12
+"environmental","efficiency",13
+"equality","efficiency",21
+"equilibrium","efficiency",30
+"evolution","efficiency",5
+"expectations","efficiency",18
+"experience","efficiency",7
+"fairness","efficiency",29
+"favoritism","efficiency",9
+"feedback","efficiency",12
+"framing","efficiency",18
+"game duration","efficiency",21
+"gender","efficiency",39
+"goal","efficiency",16
+"group","efficiency",138
+"group identification","efficiency",13
+"guilt","efficiency",5
+"harvest","efficiency",20
+"heterogeneous","efficiency",43
+"incentives","efficiency",160
+"individual differences","efficiency",14
+"information","efficiency",52
+"interdependence","efficiency",6
+"intergroup","efficiency",9
+"intuition","efficiency",3
+"knowledge","efficiency",9
+"leadership","efficiency",24
+"learning","efficiency",6
+"moral","efficiency",6
+"motivation","efficiency",48
+"norm","efficiency",33
+"partner type","efficiency",20
+"perception","efficiency",9
+"perspective","efficiency",17
+"power","efficiency",22
+"preference","efficiency",27
+"prisoner's dilemma","efficiency",38
+"promise","efficiency",6
+"psychopathology","efficiency",7
+"public goods dilemma","efficiency",60
+"punishment","efficiency",89
+"reciprocity","efficiency",31
+"reputation","efficiency",9
+"resource dilemma","efficiency",13
+"reward","efficiency",18
+"risk","efficiency",7
+"rule","efficiency",30
+"sequentiality","efficiency",8
+"social value orientation","efficiency",20
+"socio-economic status","efficiency",4
+"strategy","efficiency",72
+"structure","efficiency",15
+"threat","efficiency",28
+"time pressure","efficiency",9
+"trust","efficiency",17
+"uncertainty","efficiency",6
+"emotion valence","emotion",21
+"endowment","emotion",9
+"environmental","emotion",9
+"equality","emotion",7
+"equilibrium","emotion",5
+"evolution","emotion",9
+"expectations","emotion",9
+"experience","emotion",2
+"fairness","emotion",21
+"favoritism","emotion",2
+"feedback","emotion",8
+"framing","emotion",14
+"game duration","emotion",15
+"gender","emotion",22
+"goal","emotion",6
+"group","emotion",57
+"group identification","emotion",8
+"guilt","emotion",10
+"harvest","emotion",2
+"heterogeneous","emotion",16
+"incentives","emotion",79
+"individual differences","emotion",17
+"information","emotion",25
+"interdependence","emotion",5
+"intergroup","emotion",6
+"intuition","emotion",7
+"knowledge","emotion",11
+"leadership","emotion",15
+"learning","emotion",6
+"moral","emotion",10
+"motivation","emotion",38
+"norm","emotion",12
+"partner type","emotion",12
+"perception","emotion",7
+"perspective","emotion",16
+"power","emotion",7
+"preference","emotion",16
+"prisoner's dilemma","emotion",23
+"promise","emotion",6
+"psychopathology","emotion",6
+"public goods dilemma","emotion",20
+"punishment","emotion",34
+"reciprocity","emotion",16
+"reputation","emotion",3
+"resource dilemma","emotion",9
+"reward","emotion",7
+"risk","emotion",3
+"rule","emotion",19
+"sequentiality","emotion",6
+"social value orientation","emotion",16
+"socio-economic status","emotion",7
+"strategy","emotion",35
+"structure","emotion",10
+"threat","emotion",18
+"time pressure","emotion",7
+"trust","emotion",16
+"uncertainty","emotion",8
+"endowment","emotion valence",6
+"environmental","emotion valence",4
+"equality","emotion valence",9
+"equilibrium","emotion valence",4
+"evolution","emotion valence",8
+"expectations","emotion valence",11
+"experience","emotion valence",3
+"fairness","emotion valence",15
+"favoritism","emotion valence",5
+"feedback","emotion valence",5
+"framing","emotion valence",11
+"game duration","emotion valence",14
+"gender","emotion valence",30
+"goal","emotion valence",10
+"group","emotion valence",57
+"group identification","emotion valence",5
+"guilt","emotion valence",6
+"harvest","emotion valence",9
+"heterogeneous","emotion valence",20
+"incentives","emotion valence",76
+"individual differences","emotion valence",9
+"information","emotion valence",17
+"interdependence","emotion valence",5
+"intergroup","emotion valence",5
+"intuition","emotion valence",5
+"knowledge","emotion valence",4
+"leadership","emotion valence",9
+"learning","emotion valence",3
+"moral","emotion valence",10
+"motivation","emotion valence",26
+"norm","emotion valence",17
+"partner type","emotion valence",10
+"perception","emotion valence",5
+"perspective","emotion valence",7
+"power","emotion valence",7
+"preference","emotion valence",15
+"prisoner's dilemma","emotion valence",22
+"promise","emotion valence",4
+"psychopathology","emotion valence",6
+"public goods dilemma","emotion valence",23
+"punishment","emotion valence",52
+"reciprocity","emotion valence",22
+"reputation","emotion valence",7
+"resource dilemma","emotion valence",10
+"reward","emotion valence",11
+"risk","emotion valence",2
+"rule","emotion valence",10
+"sequentiality","emotion valence",8
+"social value orientation","emotion valence",17
+"socio-economic status","emotion valence",5
+"strategy","emotion valence",35
+"structure","emotion valence",10
+"threat","emotion valence",19
+"time pressure","emotion valence",4
+"trust","emotion valence",10
+"uncertainty","emotion valence",6
+"environmental","endowment",5
+"equality","endowment",21
+"equilibrium","endowment",5
+"evolution","endowment",3
+"expectations","endowment",9
+"experience","endowment",6
+"fairness","endowment",12
+"favoritism","endowment",3
+"feedback","endowment",1
+"framing","endowment",6
+"game duration","endowment",6
+"gender","endowment",13
+"goal","endowment",5
+"group","endowment",54
+"group identification","endowment",9
+"guilt","endowment",1
+"harvest","endowment",0
+"heterogeneous","endowment",28
+"incentives","endowment",62
+"individual differences","endowment",3
+"information","endowment",13
+"interdependence","endowment",5
+"intergroup","endowment",4
+"intuition","endowment",1
+"knowledge","endowment",4
+"leadership","endowment",10
+"learning","endowment",1
+"moral","endowment",2
+"motivation","endowment",10
+"norm","endowment",10
+"partner type","endowment",3
+"perception","endowment",1
+"perspective","endowment",6
+"power","endowment",4
+"preference","endowment",8
+"prisoner's dilemma","endowment",10
+"promise","endowment",5
+"psychopathology","endowment",0
+"public goods dilemma","endowment",23
+"punishment","endowment",16
+"reciprocity","endowment",9
+"reputation","endowment",3
+"resource dilemma","endowment",13
+"reward","endowment",10
+"risk","endowment",4
+"rule","endowment",6
+"sequentiality","endowment",10
+"social value orientation","endowment",1
+"socio-economic status","endowment",6
+"strategy","endowment",21
+"structure","endowment",4
+"threat","endowment",12
+"time pressure","endowment",2
+"trust","endowment",5
+"uncertainty","endowment",2
+"equality","environmental",9
+"equilibrium","environmental",6
+"evolution","environmental",6
+"expectations","environmental",8
+"experience","environmental",6
+"fairness","environmental",11
+"favoritism","environmental",5
+"feedback","environmental",2
+"framing","environmental",9
+"game duration","environmental",10
+"gender","environmental",23
+"goal","environmental",4
+"group","environmental",71
+"group identification","environmental",4
+"guilt","environmental",5
+"harvest","environmental",27
+"heterogeneous","environmental",12
+"incentives","environmental",77
+"individual differences","environmental",12
+"information","environmental",17
+"interdependence","environmental",6
+"intergroup","environmental",3
+"intuition","environmental",2
+"knowledge","environmental",4
+"leadership","environmental",12
+"learning","environmental",1
+"moral","environmental",4
+"motivation","environmental",29
+"norm","environmental",32
+"partner type","environmental",5
+"perception","environmental",4
+"perspective","environmental",9
+"power","environmental",9
+"preference","environmental",12
+"prisoner's dilemma","environmental",10
+"promise","environmental",1
+"psychopathology","environmental",0
+"public goods dilemma","environmental",26
+"punishment","environmental",30
+"reciprocity","environmental",13
+"reputation","environmental",5
+"resource dilemma","environmental",37
+"reward","environmental",7
+"risk","environmental",5
+"rule","environmental",21
+"sequentiality","environmental",7
+"social value orientation","environmental",10
+"socio-economic status","environmental",9
+"strategy","environmental",28
+"structure","environmental",9
+"threat","environmental",13
+"time pressure","environmental",5
+"trust","environmental",11
+"uncertainty","environmental",20
+"equilibrium","equality",9
+"evolution","equality",4
+"expectations","equality",3
+"experience","equality",8
+"fairness","equality",16
+"favoritism","equality",4
+"feedback","equality",5
+"framing","equality",7
+"game duration","equality",8
+"gender","equality",19
+"goal","equality",4
+"group","equality",73
+"group identification","equality",5
+"guilt","equality",0
+"harvest","equality",7
+"heterogeneous","equality",27
+"incentives","equality",71
+"individual differences","equality",5
+"information","equality",14
+"interdependence","equality",3
+"intergroup","equality",11
+"intuition","equality",4
+"knowledge","equality",3
+"leadership","equality",14
+"learning","equality",2
+"moral","equality",3
+"motivation","equality",24
+"norm","equality",10
+"partner type","equality",5
+"perception","equality",3
+"perspective","equality",9
+"power","equality",11
+"preference","equality",10
+"prisoner's dilemma","equality",14
+"promise","equality",4
+"psychopathology","equality",0
+"public goods dilemma","equality",26
+"punishment","equality",27
+"reciprocity","equality",13
+"reputation","equality",1
+"resource dilemma","equality",22
+"reward","equality",10
+"risk","equality",4
+"rule","equality",21
+"sequentiality","equality",4
+"social value orientation","equality",4
+"socio-economic status","equality",6
+"strategy","equality",33
+"structure","equality",8
+"threat","equality",17
+"time pressure","equality",4
+"trust","equality",8
+"uncertainty","equality",8
+"evolution","equilibrium",3
+"expectations","equilibrium",11
+"experience","equilibrium",3
+"fairness","equilibrium",5
+"favoritism","equilibrium",7
+"feedback","equilibrium",0
+"framing","equilibrium",6
+"game duration","equilibrium",6
+"gender","equilibrium",16
+"goal","equilibrium",3
+"group","equilibrium",42
+"group identification","equilibrium",5
+"guilt","equilibrium",1
+"harvest","equilibrium",8
+"heterogeneous","equilibrium",18
+"incentives","equilibrium",84
+"individual differences","equilibrium",5
+"information","equilibrium",21
+"interdependence","equilibrium",2
+"intergroup","equilibrium",2
+"intuition","equilibrium",2
+"knowledge","equilibrium",2
+"leadership","equilibrium",6
+"learning","equilibrium",6
+"moral","equilibrium",3
+"motivation","equilibrium",31
+"norm","equilibrium",13
+"partner type","equilibrium",7
+"perception","equilibrium",2
+"perspective","equilibrium",6
+"power","equilibrium",8
+"preference","equilibrium",12
+"prisoner's dilemma","equilibrium",31
+"promise","equilibrium",3
+"psychopathology","equilibrium",0
+"public goods dilemma","equilibrium",32
+"punishment","equilibrium",29
+"reciprocity","equilibrium",14
+"reputation","equilibrium",2
+"resource dilemma","equilibrium",9
+"reward","equilibrium",10
+"risk","equilibrium",4
+"rule","equilibrium",9
+"sequentiality","equilibrium",11
+"social value orientation","equilibrium",3
+"socio-economic status","equilibrium",2
+"strategy","equilibrium",50
+"structure","equilibrium",6
+"threat","equilibrium",14
+"time pressure","equilibrium",3
+"trust","equilibrium",4
+"uncertainty","equilibrium",5
+"expectations","evolution",1
+"experience","evolution",6
+"fairness","evolution",8
+"favoritism","evolution",2
+"feedback","evolution",1
+"framing","evolution",5
+"game duration","evolution",7
+"gender","evolution",17
+"goal","evolution",5
+"group","evolution",47
+"group identification","evolution",4
+"guilt","evolution",4
+"harvest","evolution",11
+"heterogeneous","evolution",11
+"incentives","evolution",53
+"individual differences","evolution",4
+"information","evolution",12
+"interdependence","evolution",1
+"intergroup","evolution",10
+"intuition","evolution",3
+"knowledge","evolution",2
+"leadership","evolution",5
+"learning","evolution",9
+"moral","evolution",2
+"motivation","evolution",15
+"norm","evolution",13
+"partner type","evolution",8
+"perception","evolution",1
+"perspective","evolution",9
+"power","evolution",7
+"preference","evolution",4
+"prisoner's dilemma","evolution",28
+"promise","evolution",3
+"psychopathology","evolution",2
+"public goods dilemma","evolution",7
+"punishment","evolution",33
+"reciprocity","evolution",14
+"reputation","evolution",8
+"resource dilemma","evolution",6
+"reward","evolution",8
+"risk","evolution",2
+"rule","evolution",7
+"sequentiality","evolution",6
+"social value orientation","evolution",11
+"socio-economic status","evolution",0
+"strategy","evolution",41
+"structure","evolution",14
+"threat","evolution",11
+"time pressure","evolution",7
+"trust","evolution",6
+"uncertainty","evolution",1
+"experience","expectations",6
+"fairness","expectations",18
+"favoritism","expectations",10
+"feedback","expectations",10
+"framing","expectations",14
+"game duration","expectations",11
+"gender","expectations",34
+"goal","expectations",13
+"group","expectations",78
+"group identification","expectations",18
+"guilt","expectations",7
+"harvest","expectations",7
+"heterogeneous","expectations",24
+"incentives","expectations",87
+"individual differences","expectations",11
+"information","expectations",31
+"interdependence","expectations",10
+"intergroup","expectations",10
+"intuition","expectations",8
+"knowledge","expectations",10
+"leadership","expectations",8
+"learning","expectations",6
+"moral","expectations",12
+"motivation","expectations",49
+"norm","expectations",25
+"partner type","expectations",16
+"perception","expectations",12
+"perspective","expectations",10
+"power","expectations",12
+"preference","expectations",25
+"prisoner's dilemma","expectations",42
+"promise","expectations",5
+"psychopathology","expectations",5
+"public goods dilemma","expectations",20
+"punishment","expectations",32
+"reciprocity","expectations",24
+"reputation","expectations",2
+"resource dilemma","expectations",8
+"reward","expectations",11
+"risk","expectations",6
+"rule","expectations",15
+"sequentiality","expectations",16
+"social value orientation","expectations",15
+"socio-economic status","expectations",2
+"strategy","expectations",47
+"structure","expectations",16
+"threat","expectations",17
+"time pressure","expectations",2
+"trust","expectations",27
+"uncertainty","expectations",9
+"fairness","experience",7
+"favoritism","experience",0
+"feedback","experience",1
+"framing","experience",8
+"game duration","experience",7
+"gender","experience",6
+"goal","experience",6
+"group","experience",31
+"group identification","experience",4
+"guilt","experience",3
+"harvest","experience",7
+"heterogeneous","experience",7
+"incentives","experience",40
+"individual differences","experience",7
+"information","experience",20
+"interdependence","experience",0
+"intergroup","experience",1
+"intuition","experience",4
+"knowledge","experience",3
+"leadership","experience",5
+"learning","experience",9
+"moral","experience",3
+"motivation","experience",9
+"norm","experience",11
+"partner type","experience",6
+"perception","experience",7
+"perspective","experience",3
+"power","experience",4
+"preference","experience",4
+"prisoner's dilemma","experience",17
+"promise","experience",2
+"psychopathology","experience",0
+"public goods dilemma","experience",10
+"punishment","experience",17
+"reciprocity","experience",9
+"reputation","experience",3
+"resource dilemma","experience",13
+"reward","experience",6
+"risk","experience",3
+"rule","experience",10
+"sequentiality","experience",4
+"social value orientation","experience",5
+"socio-economic status","experience",2
+"strategy","experience",27
+"structure","experience",5
+"threat","experience",8
+"time pressure","experience",3
+"trust","experience",8
+"uncertainty","experience",2
+"favoritism","fairness",5
+"feedback","fairness",8
+"framing","fairness",7
+"game duration","fairness",10
+"gender","fairness",31
+"goal","fairness",16
+"group","fairness",80
+"group identification","fairness",10
+"guilt","fairness",11
+"harvest","fairness",9
+"heterogeneous","fairness",14
+"incentives","fairness",92
+"individual differences","fairness",8
+"information","fairness",19
+"interdependence","fairness",3
+"intergroup","fairness",9
+"intuition","fairness",5
+"knowledge","fairness",11
+"leadership","fairness",15
+"learning","fairness",5
+"moral","fairness",9
+"motivation","fairness",47
+"norm","fairness",26
+"partner type","fairness",9
+"perception","fairness",11
+"perspective","fairness",10
+"power","fairness",16
+"preference","fairness",20
+"prisoner's dilemma","fairness",28
+"promise","fairness",7
+"psychopathology","fairness",4
+"public goods dilemma","fairness",25
+"punishment","fairness",49
+"reciprocity","fairness",24
+"reputation","fairness",3
+"resource dilemma","fairness",17
+"reward","fairness",12
+"risk","fairness",5
+"rule","fairness",18
+"sequentiality","fairness",10
+"social value orientation","fairness",16
+"socio-economic status","fairness",5
+"strategy","fairness",34
+"structure","fairness",14
+"threat","fairness",15
+"time pressure","fairness",7
+"trust","fairness",24
+"uncertainty","fairness",4
+"feedback","favoritism",2
+"framing","favoritism",5
+"game duration","favoritism",10
+"gender","favoritism",11
+"goal","favoritism",3
+"group","favoritism",39
+"group identification","favoritism",14
+"guilt","favoritism",2
+"harvest","favoritism",9
+"heterogeneous","favoritism",7
+"incentives","favoritism",36
+"individual differences","favoritism",4
+"information","favoritism",7
+"interdependence","favoritism",3
+"intergroup","favoritism",13
+"intuition","favoritism",1
+"knowledge","favoritism",6
+"leadership","favoritism",5
+"learning","favoritism",0
+"moral","favoritism",1
+"motivation","favoritism",13
+"norm","favoritism",7
+"partner type","favoritism",6
+"perception","favoritism",3
+"perspective","favoritism",8
+"power","favoritism",1
+"preference","favoritism",4
+"prisoner's dilemma","favoritism",13
+"promise","favoritism",3
+"psychopathology","favoritism",0
+"public goods dilemma","favoritism",9
+"punishment","favoritism",13
+"reciprocity","favoritism",9
+"reputation","favoritism",3
+"resource dilemma","favoritism",2
+"reward","favoritism",5
+"risk","favoritism",1
+"rule","favoritism",4
+"sequentiality","favoritism",4
+"social value orientation","favoritism",6
+"socio-economic status","favoritism",4
+"strategy","favoritism",15
+"structure","favoritism",4
+"threat","favoritism",8
+"time pressure","favoritism",2
+"trust","favoritism",4
+"uncertainty","favoritism",1
+"framing","feedback",5
+"game duration","feedback",13
+"gender","feedback",8
+"goal","feedback",11
+"group","feedback",35
+"group identification","feedback",3
+"guilt","feedback",1
+"harvest","feedback",3
+"heterogeneous","feedback",7
+"incentives","feedback",37
+"individual differences","feedback",4
+"information","feedback",20
+"interdependence","feedback",4
+"intergroup","feedback",3
+"intuition","feedback",1
+"knowledge","feedback",4
+"leadership","feedback",8
+"learning","feedback",1
+"moral","feedback",1
+"motivation","feedback",18
+"norm","feedback",4
+"partner type","feedback",5
+"perception","feedback",1
+"perspective","feedback",3
+"power","feedback",7
+"preference","feedback",2
+"prisoner's dilemma","feedback",20
+"promise","feedback",1
+"psychopathology","feedback",2
+"public goods dilemma","feedback",6
+"punishment","feedback",13
+"reciprocity","feedback",6
+"reputation","feedback",2
+"resource dilemma","feedback",6
+"reward","feedback",4
+"risk","feedback",2
+"rule","feedback",5
+"sequentiality","feedback",7
+"social value orientation","feedback",4
+"socio-economic status","feedback",4
+"strategy","feedback",18
+"structure","feedback",5
+"threat","feedback",6
+"time pressure","feedback",4
+"trust","feedback",8
+"uncertainty","feedback",2
+"game duration","framing",9
+"gender","framing",20
+"goal","framing",6
+"group","framing",76
+"group identification","framing",16
+"guilt","framing",6
+"harvest","framing",7
+"heterogeneous","framing",20
+"incentives","framing",74
+"individual differences","framing",9
+"information","framing",20
+"interdependence","framing",8
+"intergroup","framing",15
+"intuition","framing",4
+"knowledge","framing",6
+"leadership","framing",11
+"learning","framing",3
+"moral","framing",8
+"motivation","framing",36
+"norm","framing",16
+"partner type","framing",7
+"perception","framing",8
+"perspective","framing",7
+"power","framing",13
+"preference","framing",15
+"prisoner's dilemma","framing",37
+"promise","framing",4
+"psychopathology","framing",2
+"public goods dilemma","framing",27
+"punishment","framing",25
+"reciprocity","framing",16
+"reputation","framing",3
+"resource dilemma","framing",9
+"reward","framing",15
+"risk","framing",8
+"rule","framing",10
+"sequentiality","framing",12
+"social value orientation","framing",22
+"socio-economic status","framing",3
+"strategy","framing",46
+"structure","framing",8
+"threat","framing",21
+"time pressure","framing",10
+"trust","framing",13
+"uncertainty","framing",4
+"gender","game duration",33
+"goal","game duration",18
+"group","game duration",80
+"group identification","game duration",10
+"guilt","game duration",3
+"harvest","game duration",21
+"heterogeneous","game duration",17
+"incentives","game duration",113
+"individual differences","game duration",24
+"information","game duration",29
+"interdependence","game duration",7
+"intergroup","game duration",6
+"intuition","game duration",2
+"knowledge","game duration",7
+"leadership","game duration",15
+"learning","game duration",6
+"moral","game duration",7
+"motivation","game duration",37
+"norm","game duration",16
+"partner type","game duration",15
+"perception","game duration",8
+"perspective","game duration",9
+"power","game duration",19
+"preference","game duration",5
+"prisoner's dilemma","game duration",60
+"promise","game duration",10
+"psychopathology","game duration",4
+"public goods dilemma","game duration",18
+"punishment","game duration",42
+"reciprocity","game duration",16
+"reputation","game duration",4
+"resource dilemma","game duration",13
+"reward","game duration",28
+"risk","game duration",0
+"rule","game duration",9
+"sequentiality","game duration",19
+"social value orientation","game duration",12
+"socio-economic status","game duration",6
+"strategy","game duration",76
+"structure","game duration",8
+"threat","game duration",32
+"time pressure","game duration",5
+"trust","game duration",11
+"uncertainty","game duration",3
+"goal","gender",21
+"group","gender",147
+"group identification","gender",41
+"guilt","gender",8
+"harvest","gender",15
+"heterogeneous","gender",40
+"incentives","gender",168
+"individual differences","gender",26
+"information","gender",43
+"interdependence","gender",17
+"intergroup","gender",20
+"intuition","gender",11
+"knowledge","gender",16
+"leadership","gender",26
+"learning","gender",6
+"moral","gender",11
+"motivation","gender",88
+"norm","gender",34
+"partner type","gender",24
+"perception","gender",16
+"perspective","gender",22
+"power","gender",20
+"preference","gender",38
+"prisoner's dilemma","gender",62
+"promise","gender",4
+"psychopathology","gender",8
+"public goods dilemma","gender",41
+"punishment","gender",79
+"reciprocity","gender",41
+"reputation","gender",9
+"resource dilemma","gender",22
+"reward","gender",20
+"risk","gender",12
+"rule","gender",21
+"sequentiality","gender",15
+"social value orientation","gender",33
+"socio-economic status","gender",22
+"strategy","gender",103
+"structure","gender",22
+"threat","gender",46
+"time pressure","gender",11
+"trust","gender",20
+"uncertainty","gender",6
+"group","goal",47
+"group identification","goal",7
+"guilt","goal",6
+"harvest","goal",9
+"heterogeneous","goal",8
+"incentives","goal",52
+"individual differences","goal",8
+"information","goal",15
+"interdependence","goal",2
+"intergroup","goal",6
+"intuition","goal",3
+"knowledge","goal",4
+"leadership","goal",11
+"learning","goal",3
+"moral","goal",5
+"motivation","goal",24
+"norm","goal",10
+"partner type","goal",17
+"perception","goal",7
+"perspective","goal",8
+"power","goal",7
+"preference","goal",12
+"prisoner's dilemma","goal",27
+"promise","goal",1
+"psychopathology","goal",2
+"public goods dilemma","goal",8
+"punishment","goal",23
+"reciprocity","goal",11
+"reputation","goal",3
+"resource dilemma","goal",12
+"reward","goal",8
+"risk","goal",7
+"rule","goal",8
+"sequentiality","goal",9
+"social value orientation","goal",11
+"socio-economic status","goal",5
+"strategy","goal",39
+"structure","goal",13
+"threat","goal",18
+"time pressure","goal",5
+"trust","goal",9
+"uncertainty","goal",2
+"group identification","group",94
+"guilt","group",19
+"harvest","group",63
+"heterogeneous","group",130
+"incentives","group",506
+"individual differences","group",44
+"information","group",130
+"interdependence","group",27
+"intergroup","group",78
+"intuition","group",24
+"knowledge","group",44
+"leadership","group",97
+"learning","group",20
+"moral","group",26
+"motivation","group",169
+"norm","group",108
+"partner type","group",55
+"perception","group",36
+"perspective","group",52
+"power","group",73
+"preference","group",66
+"prisoner's dilemma","group",139
+"promise","group",17
+"psychopathology","group",16
+"public goods dilemma","group",142
+"punishment","group",231
+"reciprocity","group",101
+"reputation","group",30
+"resource dilemma","group",79
+"reward","group",59
+"risk","group",18
+"rule","group",73
+"sequentiality","group",53
+"social value orientation","group",56
+"socio-economic status","group",28
+"strategy","group",231
+"structure","group",61
+"threat","group",101
+"time pressure","group",35
+"trust","group",66
+"uncertainty","group",30
+"guilt","group identification",4
+"harvest","group identification",5
+"heterogeneous","group identification",25
+"incentives","group identification",65
+"individual differences","group identification",9
+"information","group identification",16
+"interdependence","group identification",9
+"intergroup","group identification",31
+"intuition","group identification",5
+"knowledge","group identification",17
+"leadership","group identification",13
+"learning","group identification",0
+"moral","group identification",5
+"motivation","group identification",32
+"norm","group identification",28
+"partner type","group identification",9
+"perception","group identification",12
+"perspective","group identification",14
+"power","group identification",10
+"preference","group identification",6
+"prisoner's dilemma","group identification",25
+"promise","group identification",6
+"psychopathology","group identification",0
+"public goods dilemma","group identification",9
+"punishment","group identification",29
+"reciprocity","group identification",16
+"reputation","group identification",6
+"resource dilemma","group identification",8
+"reward","group identification",6
+"risk","group identification",0
+"rule","group identification",9
+"sequentiality","group identification",8
+"social value orientation","group identification",7
+"socio-economic status","group identification",12
+"strategy","group identification",32
+"structure","group identification",9
+"threat","group identification",20
+"time pressure","group identification",5
+"trust","group identification",11
+"uncertainty","group identification",0
+"harvest","guilt",3
+"heterogeneous","guilt",2
+"incentives","guilt",26
+"individual differences","guilt",2
+"information","guilt",6
+"interdependence","guilt",2
+"intergroup","guilt",2
+"intuition","guilt",3
+"knowledge","guilt",4
+"leadership","guilt",7
+"learning","guilt",2
+"moral","guilt",5
+"motivation","guilt",8
+"norm","guilt",10
+"partner type","guilt",7
+"perception","guilt",3
+"perspective","guilt",2
+"power","guilt",3
+"preference","guilt",3
+"prisoner's dilemma","guilt",12
+"promise","guilt",2
+"psychopathology","guilt",3
+"public goods dilemma","guilt",3
+"punishment","guilt",16
+"reciprocity","guilt",8
+"reputation","guilt",1
+"resource dilemma","guilt",3
+"reward","guilt",3
+"risk","guilt",3
+"rule","guilt",4
+"sequentiality","guilt",6
+"social value orientation","guilt",6
+"socio-economic status","guilt",0
+"strategy","guilt",12
+"structure","guilt",1
+"threat","guilt",6
+"time pressure","guilt",5
+"trust","guilt",10
+"uncertainty","guilt",1
+"heterogeneous","harvest",15
+"incentives","harvest",78
+"individual differences","harvest",9
+"information","harvest",20
+"interdependence","harvest",3
+"intergroup","harvest",2
+"intuition","harvest",1
+"knowledge","harvest",3
+"leadership","harvest",14
+"learning","harvest",4
+"moral","harvest",4
+"motivation","harvest",25
+"norm","harvest",18
+"partner type","harvest",7
+"perception","harvest",7
+"perspective","harvest",5
+"power","harvest",11
+"preference","harvest",9
+"prisoner's dilemma","harvest",25
+"promise","harvest",0
+"psychopathology","harvest",3
+"public goods dilemma","harvest",18
+"punishment","harvest",37
+"reciprocity","harvest",15
+"reputation","harvest",4
+"resource dilemma","harvest",17
+"reward","harvest",8
+"risk","harvest",3
+"rule","harvest",22
+"sequentiality","harvest",7
+"social value orientation","harvest",7
+"socio-economic status","harvest",8
+"strategy","harvest",45
+"structure","harvest",12
+"threat","harvest",17
+"time pressure","harvest",5
+"trust","harvest",11
+"uncertainty","harvest",9
+"incentives","heterogeneous",123
+"individual differences","heterogeneous",22
+"information","heterogeneous",33
+"interdependence","heterogeneous",6
+"intergroup","heterogeneous",12
+"intuition","heterogeneous",3
+"knowledge","heterogeneous",7
+"leadership","heterogeneous",14
+"learning","heterogeneous",6
+"moral","heterogeneous",1
+"motivation","heterogeneous",52
+"norm","heterogeneous",29
+"partner type","heterogeneous",21
+"perception","heterogeneous",11
+"perspective","heterogeneous",17
+"power","heterogeneous",17
+"preference","heterogeneous",38
+"prisoner's dilemma","heterogeneous",32
+"promise","heterogeneous",2
+"psychopathology","heterogeneous",7
+"public goods dilemma","heterogeneous",47
+"punishment","heterogeneous",43
+"reciprocity","heterogeneous",21
+"reputation","heterogeneous",4
+"resource dilemma","heterogeneous",17
+"reward","heterogeneous",18
+"risk","heterogeneous",6
+"rule","heterogeneous",26
+"sequentiality","heterogeneous",12
+"social value orientation","heterogeneous",15
+"socio-economic status","heterogeneous",14
+"strategy","heterogeneous",68
+"structure","heterogeneous",19
+"threat","heterogeneous",36
+"time pressure","heterogeneous",5
+"trust","heterogeneous",18
+"uncertainty","heterogeneous",4
+"individual differences","incentives",62
+"information","incentives",154
+"interdependence","incentives",44
+"intergroup","incentives",56
+"intuition","incentives",33
+"knowledge","incentives",46
+"leadership","incentives",79
+"learning","incentives",32
+"moral","incentives",34
+"motivation","incentives",227
+"norm","incentives",130
+"partner type","incentives",71
+"perception","incentives",37
+"perspective","incentives",63
+"power","incentives",69
+"preference","incentives",92
+"prisoner's dilemma","incentives",236
+"promise","incentives",23
+"psychopathology","incentives",13
+"public goods dilemma","incentives",159
+"punishment","incentives",294
+"reciprocity","incentives",109
+"reputation","incentives",41
+"resource dilemma","incentives",84
+"reward","incentives",105
+"risk","incentives",37
+"rule","incentives",94
+"sequentiality","incentives",66
+"social value orientation","incentives",79
+"socio-economic status","incentives",28
+"strategy","incentives",343
+"structure","incentives",92
+"threat","incentives",119
+"time pressure","incentives",40
+"trust","incentives",86
+"uncertainty","incentives",39
+"information","individual differences",18
+"interdependence","individual differences",0
+"intergroup","individual differences",5
+"intuition","individual differences",7
+"knowledge","individual differences",3
+"leadership","individual differences",9
+"learning","individual differences",1
+"moral","individual differences",8
+"motivation","individual differences",37
+"norm","individual differences",6
+"partner type","individual differences",14
+"perception","individual differences",10
+"perspective","individual differences",17
+"power","individual differences",10
+"preference","individual differences",10
+"prisoner's dilemma","individual differences",38
+"promise","individual differences",3
+"psychopathology","individual differences",7
+"public goods dilemma","individual differences",13
+"punishment","individual differences",18
+"reciprocity","individual differences",11
+"reputation","individual differences",2
+"resource dilemma","individual differences",6
+"reward","individual differences",8
+"risk","individual differences",4
+"rule","individual differences",5
+"sequentiality","individual differences",8
+"social value orientation","individual differences",16
+"socio-economic status","individual differences",5
+"strategy","individual differences",39
+"structure","individual differences",11
+"threat","individual differences",11
+"time pressure","individual differences",5
+"trust","individual differences",17
+"uncertainty","individual differences",4
+"interdependence","information",15
+"intergroup","information",5
+"intuition","information",7
+"knowledge","information",18
+"leadership","information",25
+"learning","information",15
+"moral","information",7
+"motivation","information",52
+"norm","information",32
+"partner type","information",21
+"perception","information",12
+"perspective","information",14
+"power","information",19
+"preference","information",16
+"prisoner's dilemma","information",41
+"promise","information",6
+"psychopathology","information",3
+"public goods dilemma","information",47
+"punishment","information",69
+"reciprocity","information",31
+"reputation","information",10
+"resource dilemma","information",24
+"reward","information",23
+"risk","information",8
+"rule","information",25
+"sequentiality","information",27
+"social value orientation","information",15
+"socio-economic status","information",10
+"strategy","information",92
+"structure","information",19
+"threat","information",22
+"time pressure","information",12
+"trust","information",20
+"uncertainty","information",10
+"intergroup","interdependence",3
+"intuition","interdependence",1
+"knowledge","interdependence",3
+"leadership","interdependence",3
+"learning","interdependence",0
+"moral","interdependence",1
+"motivation","interdependence",15
+"norm","interdependence",11
+"partner type","interdependence",2
+"perception","interdependence",1
+"perspective","interdependence",5
+"power","interdependence",2
+"preference","interdependence",7
+"prisoner's dilemma","interdependence",16
+"promise","interdependence",0
+"psychopathology","interdependence",0
+"public goods dilemma","interdependence",8
+"punishment","interdependence",10
+"reciprocity","interdependence",7
+"reputation","interdependence",1
+"resource dilemma","interdependence",4
+"reward","interdependence",5
+"risk","interdependence",6
+"rule","interdependence",7
+"sequentiality","interdependence",6
+"social value orientation","interdependence",5
+"socio-economic status","interdependence",2
+"strategy","interdependence",17
+"structure","interdependence",5
+"threat","interdependence",5
+"time pressure","interdependence",0
+"trust","interdependence",7
+"uncertainty","interdependence",2
+"intuition","intergroup",5
+"knowledge","intergroup",8
+"leadership","intergroup",8
+"learning","intergroup",2
+"moral","intergroup",3
+"motivation","intergroup",21
+"norm","intergroup",7
+"partner type","intergroup",7
+"perception","intergroup",7
+"perspective","intergroup",9
+"power","intergroup",6
+"preference","intergroup",2
+"prisoner's dilemma","intergroup",31
+"promise","intergroup",2
+"psychopathology","intergroup",0
+"public goods dilemma","intergroup",3
+"punishment","intergroup",24
+"reciprocity","intergroup",16
+"reputation","intergroup",3
+"resource dilemma","intergroup",5
+"reward","intergroup",6
+"risk","intergroup",2
+"rule","intergroup",11
+"sequentiality","intergroup",5
+"social value orientation","intergroup",6
+"socio-economic status","intergroup",1
+"strategy","intergroup",28
+"structure","intergroup",13
+"threat","intergroup",14
+"time pressure","intergroup",6
+"trust","intergroup",9
+"uncertainty","intergroup",2
+"knowledge","intuition",5
+"leadership","intuition",4
+"learning","intuition",3
+"moral","intuition",2
+"motivation","intuition",14
+"norm","intuition",2
+"partner type","intuition",8
+"perception","intuition",5
+"perspective","intuition",3
+"power","intuition",3
+"preference","intuition",7
+"prisoner's dilemma","intuition",15
+"promise","intuition",2
+"psychopathology","intuition",3
+"public goods dilemma","intuition",4
+"punishment","intuition",13
+"reciprocity","intuition",3
+"reputation","intuition",3
+"resource dilemma","intuition",1
+"reward","intuition",3
+"risk","intuition",1
+"rule","intuition",2
+"sequentiality","intuition",3
+"social value orientation","intuition",9
+"socio-economic status","intuition",0
+"strategy","intuition",18
+"structure","intuition",14
+"threat","intuition",4
+"time pressure","intuition",12
+"trust","intuition",3
+"uncertainty","intuition",1
+"leadership","knowledge",6
+"learning","knowledge",2
+"moral","knowledge",2
+"motivation","knowledge",26
+"norm","knowledge",8
+"partner type","knowledge",8
+"perception","knowledge",6
+"perspective","knowledge",5
+"power","knowledge",10
+"preference","knowledge",9
+"prisoner's dilemma","knowledge",20
+"promise","knowledge",2
+"psychopathology","knowledge",4
+"public goods dilemma","knowledge",10
+"punishment","knowledge",22
+"reciprocity","knowledge",9
+"reputation","knowledge",4
+"resource dilemma","knowledge",5
+"reward","knowledge",10
+"risk","knowledge",3
+"rule","knowledge",6
+"sequentiality","knowledge",5
+"social value orientation","knowledge",8
+"socio-economic status","knowledge",3
+"strategy","knowledge",20
+"structure","knowledge",6
+"threat","knowledge",9
+"time pressure","knowledge",5
+"trust","knowledge",6
+"uncertainty","knowledge",1
+"learning","leadership",3
+"moral","leadership",4
+"motivation","leadership",37
+"norm","leadership",17
+"partner type","leadership",13
+"perception","leadership",5
+"perspective","leadership",9
+"power","leadership",18
+"preference","leadership",12
+"prisoner's dilemma","leadership",18
+"promise","leadership",2
+"psychopathology","leadership",13
+"public goods dilemma","leadership",29
+"punishment","leadership",34
+"reciprocity","leadership",16
+"reputation","leadership",6
+"resource dilemma","leadership",16
+"reward","leadership",9
+"risk","leadership",3
+"rule","leadership",11
+"sequentiality","leadership",8
+"social value orientation","leadership",8
+"socio-economic status","leadership",7
+"strategy","leadership",37
+"structure","leadership",12
+"threat","leadership",21
+"time pressure","leadership",4
+"trust","leadership",19
+"uncertainty","leadership",3
+"moral","learning",3
+"motivation","learning",11
+"norm","learning",6
+"partner type","learning",5
+"perception","learning",1
+"perspective","learning",3
+"power","learning",3
+"preference","learning",2
+"prisoner's dilemma","learning",18
+"promise","learning",0
+"psychopathology","learning",0
+"public goods dilemma","learning",15
+"punishment","learning",10
+"reciprocity","learning",7
+"reputation","learning",5
+"resource dilemma","learning",1
+"reward","learning",6
+"risk","learning",3
+"rule","learning",9
+"sequentiality","learning",5
+"social value orientation","learning",4
+"socio-economic status","learning",0
+"strategy","learning",35
+"structure","learning",9
+"threat","learning",6
+"time pressure","learning",1
+"trust","learning",3
+"uncertainty","learning",2
+"motivation","moral",17
+"norm","moral",16
+"partner type","moral",11
+"perception","moral",5
+"perspective","moral",10
+"power","moral",4
+"preference","moral",8
+"prisoner's dilemma","moral",14
+"promise","moral",5
+"psychopathology","moral",3
+"public goods dilemma","moral",9
+"punishment","moral",28
+"reciprocity","moral",9
+"reputation","moral",1
+"resource dilemma","moral",1
+"reward","moral",8
+"risk","moral",3
+"rule","moral",10
+"sequentiality","moral",4
+"social value orientation","moral",17
+"socio-economic status","moral",2
+"strategy","moral",17
+"structure","moral",5
+"threat","moral",4
+"time pressure","moral",0
+"trust","moral",8
+"uncertainty","moral",1
+"norm","motivation",44
+"partner type","motivation",33
+"perception","motivation",18
+"perspective","motivation",31
+"power","motivation",35
+"preference","motivation",31
+"prisoner's dilemma","motivation",82
+"promise","motivation",10
+"psychopathology","motivation",16
+"public goods dilemma","motivation",42
+"punishment","motivation",71
+"reciprocity","motivation",50
+"reputation","motivation",5
+"resource dilemma","motivation",27
+"reward","motivation",31
+"risk","motivation",10
+"rule","motivation",34
+"sequentiality","motivation",30
+"social value orientation","motivation",57
+"socio-economic status","motivation",21
+"strategy","motivation",130
+"structure","motivation",39
+"threat","motivation",46
+"time pressure","motivation",18
+"trust","motivation",36
+"uncertainty","motivation",12
+"partner type","norm",5
+"perception","norm",7
+"perspective","norm",14
+"power","norm",16
+"preference","norm",23
+"prisoner's dilemma","norm",30
+"promise","norm",11
+"psychopathology","norm",1
+"public goods dilemma","norm",35
+"punishment","norm",73
+"reciprocity","norm",33
+"reputation","norm",7
+"resource dilemma","norm",22
+"reward","norm",16
+"risk","norm",6
+"rule","norm",31
+"sequentiality","norm",6
+"social value orientation","norm",19
+"socio-economic status","norm",6
+"strategy","norm",56
+"structure","norm",8
+"threat","norm",26
+"time pressure","norm",8
+"trust","norm",16
+"uncertainty","norm",5
+"perception","partner type",6
+"perspective","partner type",6
+"power","partner type",7
+"preference","partner type",15
+"prisoner's dilemma","partner type",32
+"promise","partner type",0
+"psychopathology","partner type",6
+"public goods dilemma","partner type",14
+"punishment","partner type",32
+"reciprocity","partner type",23
+"reputation","partner type",8
+"resource dilemma","partner type",2
+"reward","partner type",8
+"risk","partner type",3
+"rule","partner type",8
+"sequentiality","partner type",10
+"social value orientation","partner type",11
+"socio-economic status","partner type",6
+"strategy","partner type",53
+"structure","partner type",15
+"threat","partner type",17
+"time pressure","partner type",8
+"trust","partner type",17
+"uncertainty","partner type",0
+"perspective","perception",4
+"power","perception",5
+"preference","perception",9
+"prisoner's dilemma","perception",15
+"promise","perception",2
+"psychopathology","perception",0
+"public goods dilemma","perception",6
+"punishment","perception",13
+"reciprocity","perception",7
+"reputation","perception",0
+"resource dilemma","perception",7
+"reward","perception",6
+"risk","perception",0
+"rule","perception",5
+"sequentiality","perception",2
+"social value orientation","perception",4
+"socio-economic status","perception",2
+"strategy","perception",30
+"structure","perception",5
+"threat","perception",10
+"time pressure","perception",0
+"trust","perception",13
+"uncertainty","perception",2
+"power","perspective",7
+"preference","perspective",9
+"prisoner's dilemma","perspective",19
+"promise","perspective",8
+"psychopathology","perspective",3
+"public goods dilemma","perspective",16
+"punishment","perspective",22
+"reciprocity","perspective",15
+"reputation","perspective",3
+"resource dilemma","perspective",7
+"reward","perspective",9
+"risk","perspective",3
+"rule","perspective",10
+"sequentiality","perspective",4
+"social value orientation","perspective",8
+"socio-economic status","perspective",5
+"strategy","perspective",38
+"structure","perspective",11
+"threat","perspective",8
+"time pressure","perspective",2
+"trust","perspective",11
+"uncertainty","perspective",2
+"preference","power",3
+"prisoner's dilemma","power",31
+"promise","power",7
+"psychopathology","power",8
+"public goods dilemma","power",18
+"punishment","power",38
+"reciprocity","power",16
+"reputation","power",5
+"resource dilemma","power",11
+"reward","power",11
+"risk","power",2
+"rule","power",4
+"sequentiality","power",11
+"social value orientation","power",12
+"socio-economic status","power",3
+"strategy","power",48
+"structure","power",8
+"threat","power",21
+"time pressure","power",9
+"trust","power",14
+"uncertainty","power",2
+"prisoner's dilemma","preference",30
+"promise","preference",2
+"psychopathology","preference",3
+"public goods dilemma","preference",45
+"punishment","preference",32
+"reciprocity","preference",20
+"reputation","preference",2
+"resource dilemma","preference",8
+"reward","preference",11
+"risk","preference",17
+"rule","preference",8
+"sequentiality","preference",16
+"social value orientation","preference",20
+"socio-economic status","preference",9
+"strategy","preference",49
+"structure","preference",16
+"threat","preference",18
+"time pressure","preference",4
+"trust","preference",16
+"uncertainty","preference",7
+"promise","prisoner's dilemma",15
+"psychopathology","prisoner's dilemma",11
+"public goods dilemma","prisoner's dilemma",16
+"punishment","prisoner's dilemma",74
+"reciprocity","prisoner's dilemma",40
+"reputation","prisoner's dilemma",13
+"resource dilemma","prisoner's dilemma",8
+"reward","prisoner's dilemma",37
+"risk","prisoner's dilemma",16
+"rule","prisoner's dilemma",22
+"sequentiality","prisoner's dilemma",28
+"social value orientation","prisoner's dilemma",34
+"socio-economic status","prisoner's dilemma",9
+"strategy","prisoner's dilemma",142
+"structure","prisoner's dilemma",26
+"threat","prisoner's dilemma",42
+"time pressure","prisoner's dilemma",17
+"trust","prisoner's dilemma",34
+"uncertainty","prisoner's dilemma",7
+"psychopathology","promise",0
+"public goods dilemma","promise",7
+"punishment","promise",17
+"reciprocity","promise",8
+"reputation","promise",0
+"resource dilemma","promise",2
+"reward","promise",7
+"risk","promise",2
+"rule","promise",4
+"sequentiality","promise",0
+"social value orientation","promise",2
+"socio-economic status","promise",2
+"strategy","promise",11
+"structure","promise",4
+"threat","promise",9
+"time pressure","promise",2
+"trust","promise",8
+"uncertainty","promise",2
+"public goods dilemma","psychopathology",3
+"punishment","psychopathology",4
+"reciprocity","psychopathology",8
+"reputation","psychopathology",0
+"resource dilemma","psychopathology",0
+"reward","psychopathology",4
+"risk","psychopathology",0
+"rule","psychopathology",3
+"sequentiality","psychopathology",2
+"social value orientation","psychopathology",6
+"socio-economic status","psychopathology",2
+"strategy","psychopathology",12
+"structure","psychopathology",5
+"threat","psychopathology",7
+"time pressure","psychopathology",2
+"trust","psychopathology",5
+"uncertainty","psychopathology",0
+"punishment","public goods dilemma",96
+"reciprocity","public goods dilemma",22
+"reputation","public goods dilemma",6
+"resource dilemma","public goods dilemma",13
+"reward","public goods dilemma",22
+"risk","public goods dilemma",12
+"rule","public goods dilemma",21
+"sequentiality","public goods dilemma",16
+"social value orientation","public goods dilemma",10
+"socio-economic status","public goods dilemma",15
+"strategy","public goods dilemma",77
+"structure","public goods dilemma",16
+"threat","public goods dilemma",30
+"time pressure","public goods dilemma",6
+"trust","public goods dilemma",16
+"uncertainty","public goods dilemma",13
+"reciprocity","punishment",51
+"reputation","punishment",28
+"resource dilemma","punishment",29
+"reward","punishment",50
+"risk","punishment",12
+"rule","punishment",42
+"sequentiality","punishment",24
+"social value orientation","punishment",47
+"socio-economic status","punishment",18
+"strategy","punishment",134
+"structure","punishment",37
+"threat","punishment",67
+"time pressure","punishment",18
+"trust","punishment",37
+"uncertainty","punishment",18
+"reputation","reciprocity",14
+"resource dilemma","reciprocity",15
+"reward","reciprocity",22
+"risk","reciprocity",9
+"rule","reciprocity",16
+"sequentiality","reciprocity",20
+"social value orientation","reciprocity",16
+"socio-economic status","reciprocity",4
+"strategy","reciprocity",57
+"structure","reciprocity",16
+"threat","reciprocity",21
+"time pressure","reciprocity",10
+"trust","reciprocity",26
+"uncertainty","reciprocity",4
+"resource dilemma","reputation",0
+"reward","reputation",4
+"risk","reputation",1
+"rule","reputation",5
+"sequentiality","reputation",4
+"social value orientation","reputation",4
+"socio-economic status","reputation",1
+"strategy","reputation",16
+"structure","reputation",6
+"threat","reputation",2
+"time pressure","reputation",2
+"trust","reputation",3
+"uncertainty","reputation",1
+"reward","resource dilemma",6
+"risk","resource dilemma",2
+"rule","resource dilemma",19
+"sequentiality","resource dilemma",5
+"social value orientation","resource dilemma",8
+"socio-economic status","resource dilemma",8
+"strategy","resource dilemma",30
+"structure","resource dilemma",9
+"threat","resource dilemma",19
+"time pressure","resource dilemma",2
+"trust","resource dilemma",13
+"uncertainty","resource dilemma",15
+"risk","reward",4
+"rule","reward",14
+"sequentiality","reward",15
+"social value orientation","reward",4
+"socio-economic status","reward",2
+"strategy","reward",48
+"structure","reward",22
+"threat","reward",11
+"time pressure","reward",5
+"trust","reward",4
+"uncertainty","reward",7
+"rule","risk",2
+"sequentiality","risk",10
+"social value orientation","risk",6
+"socio-economic status","risk",4
+"strategy","risk",21
+"structure","risk",4
+"threat","risk",6
+"time pressure","risk",4
+"trust","risk",12
+"uncertainty","risk",7
+"sequentiality","rule",9
+"social value orientation","rule",16
+"socio-economic status","rule",4
+"strategy","rule",32
+"structure","rule",14
+"threat","rule",12
+"time pressure","rule",5
+"trust","rule",12
+"uncertainty","rule",9
+"social value orientation","sequentiality",8
+"socio-economic status","sequentiality",0
+"strategy","sequentiality",38
+"structure","sequentiality",11
+"threat","sequentiality",11
+"time pressure","sequentiality",3
+"trust","sequentiality",8
+"uncertainty","sequentiality",8
+"socio-economic status","social value orientation",5
+"strategy","social value orientation",37
+"structure","social value orientation",7
+"threat","social value orientation",13
+"time pressure","social value orientation",6
+"trust","social value orientation",19
+"uncertainty","social value orientation",5
+"strategy","socio-economic status",15
+"structure","socio-economic status",0
+"threat","socio-economic status",8
+"time pressure","socio-economic status",2
+"trust","socio-economic status",7
+"uncertainty","socio-economic status",2
+"structure","strategy",49
+"threat","strategy",63
+"time pressure","strategy",19
+"trust","strategy",37
+"uncertainty","strategy",21
+"threat","structure",17
+"time pressure","structure",8
+"trust","structure",11
+"uncertainty","structure",3
+"time pressure","threat",6
+"trust","threat",17
+"uncertainty","threat",12
+"trust","time pressure",7
+"uncertainty","time pressure",2
+"uncertainty","trust",2

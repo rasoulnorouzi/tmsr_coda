@@ -10,7 +10,7 @@
 "cooperation","conflict",154
 "incentives","conflict",111
 "culture","cooperation",271
-"efficency","cooperation",223
+"efficiency","cooperation",223
 "emotion","cooperation",116
 "emotion valence","cooperation",103
 "environmental","cooperation",113
@@ -37,7 +37,7 @@
 "punishment","cooperation",422
 "reciprocity","cooperation",181
 "resource dilemma","cooperation",106
-"Reward","cooperation",132
+"reward","cooperation",132
 "rule","cooperation",128
 "social value orientation","cooperation",127
 "strategy","cooperation",471
@@ -46,8 +46,8 @@
 "trust","cooperation",143
 "group","culture",160
 "incentives","culture",163
-"group","efficency",138
-"incentives","efficency",160
+"group","efficiency",138
+"incentives","efficiency",160
 "incentives","game duration",113
 "group","gender",147
 "incentives","gender",168
@@ -71,7 +71,7 @@
 "public goods dilemma","incentives",159
 "punishment","incentives",294
 "reciprocity","incentives",109
-"Reward","incentives",105
+"reward","incentives",105
 "strategy","incentives",343
 "threat","incentives",119
 "strategy","motivation",130

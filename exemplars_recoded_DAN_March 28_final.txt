@@ -1803,7 +1803,7 @@
     schedule 1, website 1
   include: yes
 '246':
-  label: efficency
+  label: efficiency
   words: efficacy 46, outsider 15, paradigm 13, insider 8, rater 8, external 7, grader
     5, demographic 4, perceiver 3, scorer 3, achiever 2, cultural 2, Efficacy 2, score
     2, worth 2, coder 1, demographics 1, efficacious 1, liar 1, outside 1, rate 1,
@@ -1826,7 +1826,7 @@
     1, sociocultural 1, specification 1, utility 1, view 1
   include: yes
 '249':
-  label: Reward
+  label: reward
   words: reward 137, incentive 85, REWARD 7, Reward 4, punishment 3, shock 3, audit
     2, investment 2, agency 1, charge 1, chemosensory 1, compensation 1, consequent
     1, distinctive 1, Incentive 1, payment 1, Payment 1, pheromone 1, PUNISHMENT 1,
@@ -2093,7 +2093,7 @@
     1, fix 1, mistake 1, supercilii 1, tion 1, Trigger 1
   include: yes
 '287':
-  label: efficency
+  label: efficiency
   words: efficiency 122, difficulty 14, Efficiency 4, equality 4, autonomy 2, ease
     2, congestion 1, efficient 1, engagement 1, manner 1, optimality 1, organization
     1
@@ -2821,7 +2821,7 @@
     1
   include: no
 '362':
-  label: efficency
+  label: efficiency
   words: efficient 72, inefficient 18, severe 12, insufficient 9, unable 8, inadequate
     3, intense 3, serious 3, Efficient 2, mild 2, quick 2, suboptimal 2, coarse 1,
     Coarse 1, deficient 1, efficiency 1, gain 1, good 1, improper 1, inaccurate 1,

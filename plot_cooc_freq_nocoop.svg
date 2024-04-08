@@ -151,7 +151,7 @@
 <text x='5.48' y='1085.13' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>reciprocity              &lt;-&gt;       group</text>
 <text x='5.48' y='1056.42' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>threat                   &lt;-&gt;       group</text>
 <text x='5.48' y='1027.71' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>strategy                 &lt;-&gt;      gender</text>
-<text x='5.48' y='998.99' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;      Reward</text>
+<text x='5.48' y='998.99' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;      reward</text>
 <text x='5.48' y='970.28' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>competitive              &lt;-&gt;    strategy</text>
 <text x='5.48' y='941.56' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>group                    &lt;-&gt;        norm</text>
 <text x='5.48' y='912.85' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>reciprocity              &lt;-&gt;  incentives</text>
@@ -164,7 +164,7 @@
 <text x='5.48' y='711.85' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;        norm</text>
 <text x='5.48' y='683.13' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>motivation               &lt;-&gt;    strategy</text>
 <text x='5.48' y='654.42' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>punishment               &lt;-&gt;    strategy</text>
-<text x='5.48' y='625.71' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>efficency                &lt;-&gt;       group</text>
+<text x='5.48' y='625.71' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>efficiency               &lt;-&gt;       group</text>
 <text x='5.48' y='596.99' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>prisoner's dilemma       &lt;-&gt;       group</text>
 <text x='5.48' y='568.28' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;    altruism</text>
 <text x='5.48' y='539.56' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>public goods dilemma     &lt;-&gt;       group</text>
@@ -174,7 +174,7 @@
 <text x='5.48' y='424.71' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>competitive              &lt;-&gt;       group</text>
 <text x='5.48' y='395.99' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>public goods dilemma     &lt;-&gt;  incentives</text>
 <text x='5.48' y='367.28' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>culture                  &lt;-&gt;       group</text>
-<text x='5.48' y='338.56' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;   efficency</text>
+<text x='5.48' y='338.56' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;  efficiency</text>
 <text x='5.48' y='309.85' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;     culture</text>
 <text x='5.48' y='281.14' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>incentives               &lt;-&gt;      gender</text>
 <text x='5.48' y='252.42' style='font-size: 6.00px;fill: #4D4D4D; font-family: "Arial";' textLength='144.00px' lengthAdjust='spacingAndGlyphs'>motivation               &lt;-&gt;       group</text>

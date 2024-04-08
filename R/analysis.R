@@ -306,8 +306,16 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   df_plot <- as.data.frame.table(V)
   names(df_plot) <- c("term1", "term2", "cooc")
   df_plot <- df_plot[as.vector(lower.tri(V)), ]
+  write.csv(df_plot, "complete_coocurrences.csv", row.names = FALSE)
+  node_centrality <- sort(sapply(levels(df_plot$term1), function(l){ sum(df_plot$cooc[df_plot$term1 == l | df_plot$term2 == l]) })) #sort(igraph::degree(g_centr, mode="all"))
+  df_nodecentral <- data.frame(construct = names(node_centrality),
+                               frequency = cluster_freq$frequency[match(names(node_centrality), cluster_freq$construct)],
+                               centrality_degree = node_centrality
+  )
 
-  # Drop some links?
+  write.csv(df_nodecentral, "complete_node_centrality.csv", row.names = FALSE)
+
+  # Now prune
   if(!is.null(prune)){
     select_links <- suppressWarnings(select_cooc(df_plot$cooc, p = prune))
     writeLines(paste("Cooccurrence graph threshold: ", attr(select_links, "thres")), "coocurrence_threshold.txt")
@@ -475,4 +483,54 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   ggsave("network_circle.png", p, device = "png", width = 7, height = 7, units = "in")
 
   return("network")
+}
+
+
+plot_meta <- function(){
+  library(ggplot2)
+  library(ggrepel)
+  cf <- read.csv("cluster_freq.csv", stringsAsFactors = F)
+  df_meta <- read.csv("meta-analytic-effects.csv", stringsAsFactors = F)
+  df_meta$Variable <- trimws(tolower(df_meta$V1))
+  all(df_meta$Variable %in% tolower(cf$Construct))
+  df_meta$Variable[!df_meta$Variable %in% tolower(cf$Construct)]
+
+  df_meta$Frequency <- as.integer(cf$Frequency[match(df_meta$Variable, cf$Construct)])
+  df_meta$effectsize <- factor(substr(df_meta$V2, 1,1), levels = c("d", "r"))
+  df_meta$Value <- abs(as.numeric(gsub("^.+?=(.+)\\).?", "\\1", df_meta$V2)))
+
+  levels(df_meta$effectsize) <- paste0(levels(df_meta$effectsize), ", ", tapply(df_meta, df_meta$effectsize, function(x){
+    print(cor.test(x$Value, log(x$Frequency), use = "pairwise.complete.obs"))
+    formatC(cor(x$Value, log(x$Frequency), use = "pairwise.complete.obs"), digits = 2, format = "f")
+  }))
+
+
+  df_plot <- df_meta[, c("Variable", "Value", "Frequency", "effectsize")]
+  df_plot <- na.omit(df_plot)
+
+  p <- ggplot(df_plot, aes(x = Value, y = Frequency, shape = effectsize, color = effectsize, label = Variable)) +
+    #geom_point() +
+    ggrepel::geom_text_repel(max.overlaps = 20, size = 4) +
+    #geom_text(aes(label = Variable, size = 1)) +
+    theme_bw()+
+    theme(legend.position = c(.9,.9), legend.title = element_blank())+
+    scale_y_log10()
+  ggsave("meta_analysis_plot.svg", p, device = "svg", width = 200, height = 180, units = "mm")
+  return("meta_analysis_plot.svg")
+}
+# df_meta$Variable[df_meta$Variable %in% tolower(cf$Construct)]c
+
+make_tables <- function(){
+tmp <- read.csv("complete_node_centrality.csv", stringsAsFactors = F)
+tmp <- tmp[order(tmp$frequency, decreasing = TRUE), ]
+cls <- 3
+rws <- ceiling(nrow(tmp) / cls)
+out <- tmp[1:rws, ]
+for(i in 2:cls){
+  out <- cbind(out, tmp[(((i-1)*rws)+1):(i*rws), ])
+}
+names(out) <- rep(c("Construct", "Freq.", "Cent."), cls)
+
+write.csv(out, "Table_X.csv", row.names = F, na = "")
+return("Table_X.csv")
 }

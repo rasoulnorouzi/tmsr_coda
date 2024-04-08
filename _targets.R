@@ -4,7 +4,7 @@ library(tarchetypes)
 # Set target options:
 tar_option_set(
   # packages that your targets need to run
-  packages = c("worcs", "dbscan", "umap", "data.table", "ggplot2", "reticulate", "igraph")
+  packages = c("worcs", "dbscan", "umap", "data.table", "ggplot2", "ggrepel", "reticulate", "igraph")
   # format = "qs", # Optionally set the default storage format. qs is fast.
   #
   # For distributed computing in tar_make(), supply a {crew} controller
@@ -87,6 +87,16 @@ list(
   , tar_target(
     name = plot_graph_file,
     command = plot_graph(df, exmplrs, res_hdbscan),
+    cue = tar_cue(mode = "always")
+  )
+  , tar_target(
+    name = plot_meta_file,
+    command = plot_meta(),
+    cue = tar_cue(mode = "always")
+  )
+  , tar_target(
+    name = table_x,
+    command = make_tables(),
     cue = tar_cue(mode = "always")
   )
   , tarchetypes::tar_render(manuscript, "index.rmd", cue = tar_cue(mode = "always"))
