@@ -485,6 +485,9 @@ plot_graph <- function(df, exmplrs, res_hdbscan, prune = .99){
   return("network")
 }
 
+d_to_r <- function(d){
+  d / sqrt((d^2 + 4))
+}
 
 plot_meta <- function(){
   library(ggplot2)
@@ -498,6 +501,7 @@ plot_meta <- function(){
   df_meta$Frequency <- as.integer(cf$Frequency[match(df_meta$Variable, cf$Construct)])
   df_meta$effectsize <- factor(substr(df_meta$V2, 1,1), levels = c("d", "r"))
   df_meta$Value <- abs(as.numeric(gsub("^.+?=(.+)\\).?", "\\1", df_meta$V2)))
+  df_meta$Value[df_meta$effectsize == "d"] <- d_to_r(df_meta$Value[df_meta$effectsize == "d"])
 
   levels(df_meta$effectsize) <- paste0(levels(df_meta$effectsize), ", ", tapply(df_meta, df_meta$effectsize, function(x){
     print(cor.test(x$Value, log(x$Frequency), use = "pairwise.complete.obs"))
