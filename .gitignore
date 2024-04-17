@@ -13,3 +13,10 @@
 *.feather
 *.rdata
 embeddings.rdata
+!coocurrences.csv
+!cluster_freq.csv
+!node_centrality.csv
+!cooc_no_coop.csv
+!table_x.csv
+!complete_coocurrences.csv
+!complete_node_centrality.csv

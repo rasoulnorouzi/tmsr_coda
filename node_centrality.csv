@@ -1,0 +1,77 @@
+"construct","frequency","centrality_degree"
+"ability",93,0
+"age",102,0
+"anonymity",97,0
+"central nervous system",80,0
+"charitable",81,0
+"chicken game",66,0
+"commitment",103,0
+"compliance",78,0
+"coordination",70,0
+"dyad",72,0
+"endowment",85,0
+"equilibrium",109,0
+"evolution",88,0
+"experience",76,0
+"favoritism",61,0
+"feedback",69,0
+"goal",100,0
+"guilt",51,0
+"individual differences",119,0
+"interdependence",65,0
+"intergroup",92,0
+"intuition",51,0
+"knowledge",80,0
+"learning",59,0
+"moral",72,0
+"perception",82,0
+"perspective",106,0
+"promise",49,0
+"psychopathology",35,0
+"reputation",57,0
+"risk",56,0
+"sequentiality",116,0
+"socio-economic status",66,0
+"time pressure",65,0
+"uncertainty",62,0
+"equality",114,101
+"cognition",130,102
+"emotion valence",126,103
+"resource dilemma",139,106
+"harvest",131,107
+"group identification",128,112
+"environmental",131,113
+"power",132,114
+"emotion",141,116
+"structure",136,116
+"partner type",132,121
+"social value orientation",150,127
+"rule",151,128
+"framing",153,131
+"leadership",155,132
+"fairness",157,139
+"preference",163,140
+"trust",168,143
+"expectations",173,147
+"communication",165,148
+"reward",148,237
+"conflict",177,265
+"game duration",192,281
+"altruism",222,334
+"reciprocity",199,391
+"threat",220,394
+"norm",208,426
+"heterogeneous",223,457
+"efficiency",250,521
+"information",277,530
+"public goods dilemma",293,574
+"culture",306,594
+"gender",316,684
+"competitive",318,716
+"prisoner's dilemma",377,843
+"motivation",386,854
+"punishment",478,1081
+"strategy",551,1660
+"group",868,3329
+"incentives",1049,4453
+"cooperation",1599,8594
